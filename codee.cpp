@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-const int GRID_SIZE = 10;
+/*const int GRID_SIZE = 10;
 const int MAX_FUEL = 20;
 // ميدئيا موقع ثابت  يمكن تعديله ان يكون عشوائي
 const pair<int,int> FUEL_STATION = {4,9};
@@ -82,4 +82,4 @@ int main() {
     cout<<"Start State: "; start.print(); cout<<endl;
 
     return 0;
-}
+}*/
