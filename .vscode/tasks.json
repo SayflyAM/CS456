@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build and Run Active C++ File",
+			"type": "shell",
+			"command": "$ext = '${fileExtname}'; if (@('.cpp','.cc','.cxx','.c') -contains $ext) { $src = '${file}'; $exe = '${fileDirname}/${fileBasenameNoExtension}.exe'; $needsBuild = !(Test-Path $exe) -or ((Get-Item $src).LastWriteTime -gt (Get-Item $exe).LastWriteTime); if ($needsBuild) { g++ \"$src\" -std=c++17 -O2 -o \"$exe\"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }; & \"$exe\" } else { Write-Host \"Open a .cpp/.cc/.cxx/.c file first, then run this task.\" }",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared",
+				"clear": true
+			}
+		}
+	]
+}
