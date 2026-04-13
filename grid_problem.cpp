@@ -8,7 +8,7 @@ bool isGoal(const State &current_state, const State &goal_state) {
 
 vector<State> getSuccessors(const State &current_state) {
 
-    vector<State> nextStates;
+    vector<State> next_States;
 
     Direction directions[4] = {
         Direction::Up,
@@ -45,12 +45,14 @@ vector<State> getSuccessors(const State &current_state) {
         
         // مزال ال coins لم يتم جمعها
 
-        // عند وصول الى محطة وقود وهيا 4.9 يتم اعادة تعبئة ال fuel الى 20
-        if(next.agent_pos.row == 4 && next.agent_pos.col == 9) {next.fuel = 20;}
+
+        // example: محطة الوقود في (3,8)
+        // عند وصول الى محطة وقود وهيا 3.8 يتم اعادة تعبئة ال fuel الى 20
+        if(next.agent_pos.row == 3 && next.agent_pos.col == 8) {next.fuel = 20;}
 
         
-        nextStates.push_back(next);// إضافة الحالة الجديدة إلى قائمة الحالات التالية
+        next_States.push_back(next);// إضافة الحالة الجديدة إلى قائمة الحالات التالية
     }
 
-    return nextStates;
+    return next_States;
 }
