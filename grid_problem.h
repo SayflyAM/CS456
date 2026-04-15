@@ -10,6 +10,7 @@ enum class Direction
     Up,
     Down,
     Left,
+    none,// تم اضافتها لتمثل الحالة الأولية (عقدة الجذر ) حيث لا توجد حركة 
     Right
 };
 
