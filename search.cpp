@@ -1,38 +1,24 @@
 #include "search.h"
-#include <queue>
-#include <vector>
-#include <chrono>
+#include "grid_problem.h"
+#include <queue> //used for BFS
+#include <vector>// used for visited and path
+#include <chrono>// used for measuring execution time
 #include <iostream>
+#include <stack> // used for DFS
 
 using namespace std;
-
-struct Node {
-    State state;// الحالة الحالية
-    Node* parent;//بوينتر إلى الأب في شجرة البحث
-    Direction action; // الحركة التي أدت إلى هذه الحالة
-    int frontier_size;//
-   
-    // Constructor
-    Node(State s, Node* p, Direction a, int f ) 
-    {
-        state = s;
-        parent = p;
-        action = a;
-        frontier_size = f;
-    }
-};
 
 //مقارنة بين حالتين لتجنب تكرار ال states في visited
 bool comparison_state(const State &a, const State &b) {
     return a.agent_pos.row == b.agent_pos.row &&
            a.agent_pos.col == b.agent_pos.col &&
            a.fuel == b.fuel &&
-           a.collected_coins == b.collected_coins;
-           
+           //a.collected_coins == b.collected_coins;
+            a.c1 == b.c1 && a.c2 == b.c2 && a.c3 == b.c3 &&a.c4 == b.c4;
 }
 
 //display the coins 
-void printCoins(uint8_t coins) 
+/*void printCoins(uint8_t coins) 
 {
    for(int i = 0; i < 4; i++) {
      if(coins & (1 << i))  cout << "t";
@@ -41,7 +27,7 @@ void printCoins(uint8_t coins)
     if(i < 3) cout << ",";// للفصل بين العملات في طباعة 
     }
 }
-
+*/ // لو استخدمت بوليان مش ح نختاجها 
 //SearchResult BFS(const State &start, const State &goal);
  void BFS(const State &start, const State &goal) 
 {
@@ -154,7 +140,8 @@ for(int i = fullPath.size()-1; i >= 0; i--) // طباعة المسار من ال
         cout << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
 
         // العملات
-        printCoins(n->state.collected_coins);cout << ")" ;
+        cout << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); cout << ")" ;
+       // printCoins(n->state.collected_coins);cout << ")" ;
         cout << " frontier: " << n->frontier_size  << endl;
         
 }
@@ -169,4 +156,113 @@ for(int i = fullPath.size()-1; i >= 0; i--) // طباعة المسار من ال
     return ;
 
     //return {goalNode != NULL, path, nodes, time};// إرجاع نتيجة البحث
+}
+#include <stack>
+
+void DFS(const State &start, const State &goal) 
+{
+    int nodes = 0;// عداد للعقد التي تم توسيعها
+    Node* goalNode = NULL; // لتخزين عقدة الهدف إذا تم العثور عليها
+
+    auto startTime = chrono::high_resolution_clock::now(); // بدء قياس الوقت
+
+    stack<Node*> frontier;// لتخزين العقد التي سيتم استكشافها
+    vector<State> visited; // لتخزين الحالات التي تم زيارتها لمنع تكرار ال states في visited
+
+    Node* root = new Node(start, NULL, Direction::none, 0);// تم إنشاء عقدة الجذر باستخدام الحالة الابتدائية، لا يوجد أب لها ولا حركة وعدد فرونتير =0
+    frontier.push(root);// إضافة عقدة الجذر إلى الفرونتير
+    visited.push_back(start); //اضافة الحالة الابتدائية إلى visited لمنع زيارتها مرة أخرى 
+
+    while(!frontier.empty())
+     {
+
+        Node* current = frontier.top();
+        frontier.pop();
+        nodes++;
+
+        //  تحقق الهدف
+        if(isGoal(current->state, goal)) // إذا تم العثور على الهدف، نخرج من حلقة التكرار
+        {
+            goalNode = current;
+            break;
+        }
+
+        vector<State> nextStates = getSuccessors(current->state);// الحصول على الحالات التالية الممكنة من الحالة الحالية بناءً على الحركات الأربعة 
+
+        Direction actions[4] = {
+            Direction::Up,
+            Direction::Down,
+            Direction::Left,
+            Direction::Right
+        };
+        //cout << "next states: " << nextStates.size() << endl;
+        for(int i = nextStates.size() - 1; i >= 0; i--) // لكل حالة تالية (نبدأ من النهاية لضمان استكشاف الحالات بالترتيب الصحيح في DFS)
+         {
+
+            bool found = false;// فلاق للتحقق مما إذا كانت الحالة التالية قد تم زيارتها بالفعل
+
+            for(int j = 0; j < visited.size(); j++) // البحث في visited
+            {
+                if(comparison_state(nextStates[i], visited[j])) // إذا تم العثور على الحالة في visited، نعتبرها حالة مكررة
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found) // إذا الحالة جديدة يتم الإنشاء
+            {
+                Node* child = new Node(nextStates[i], current, actions[i], frontier.size());//
+                frontier.push(child);
+                visited.push_back(nextStates[i]);
+            }
+        }
+    }
+
+    auto endTime = chrono::high_resolution_clock::now();// نهاية قياس الوقت
+    double time = chrono::duration<double, milli>(endTime - startTime).count();// حساب الوقت  بالميلي ثانية
+
+    // display 
+    if(goalNode != NULL)
+    {
+        cout << "Result Reached (Goal Found)\n";
+        cout << "Path:\n";
+
+        vector<Node*> fullPath;
+        Node* temp = goalNode;
+
+        while(temp != NULL) {
+            fullPath.push_back(temp);
+            temp = temp->parent;
+        }
+
+        for(int i = fullPath.size()-1; i >= 0; i--) {
+
+            Node* n = fullPath[i];
+
+            if(n->parent != NULL) {
+
+                if(n->action == Direction::Up) cout << "UP";
+                else if(n->action == Direction::Down) cout << "DOWN";
+                else if(n->action == Direction::Left) cout << "LEFT";
+                else if(n->action == Direction::Right) cout << "RIGHT";
+
+                cout << " -> State: (";
+
+                cout << n->state.agent_pos.row << ","
+                     << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
+
+                cout << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");cout << ")";
+
+                cout << " frontier: " << n->frontier_size << endl;
+            }
+        }
+    }
+    else
+    {
+        cout << "No Solution\n";
+    }
+
+    cout << "Nodes Expanded: " << nodes << endl;
+    cout << "time: " << time << " ms\n";
 }
