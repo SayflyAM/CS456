@@ -28,7 +28,7 @@ struct State
     uint8_t collected_coins;
 };
 
-struct SearchResult
+/*struct SearchResult
 {
 
     bool found_solution;
@@ -36,7 +36,7 @@ struct SearchResult
     int nodes_expanded;
     double execution_time_ms;
 };
-
+*/
 // Here we declare a function that takes a State, we have used it as Const not  just State so we do not copy of state just use what we have only.
 
 bool isGoal(const State &current_state, const State &goal_state);

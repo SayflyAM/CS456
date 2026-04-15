@@ -42,7 +42,7 @@ void printCoins(uint8_t coins)
     }
 }
 
-
+//SearchResult BFS(const State &start, const State &goal);
  void BFS(const State &start, const State &goal) 
 {
     
