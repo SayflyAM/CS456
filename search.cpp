@@ -40,7 +40,7 @@ bool comparison_state(const State &a, const State &b) {
     queue<Node*> frontier; //لتخزين العقد التي سيتم استكشافها
     vector<State> visited; // لتخزين الحالات التي تم زيارتها
 
-    Node* root = new Node(start, NULL, Direction::none, 0);//تم إنشاء عقدة الجذر باستخدام الحالة الابتدائية، لا يوجد أب لها ولا حركة وعدد فرونتير =0
+    Node* root = new Node(start, NULL, Direction::none, 0,0);//تم إنشاء عقدة الجذر باستخدام الحالة الابتدائية، لا يوجد أب لها ولا حركة وعدد فرونتير =0
     frontier.push(root);
     visited.push_back(start);//in the beginning we have only the start state in visited  
     
@@ -85,7 +85,7 @@ bool comparison_state(const State &a, const State &b) {
             // إذا الحالة جديدة
             if(!found) 
             {
-                Node* child = new Node(nextStates[i], current, actions[i], frontier.size());// إنشاء عقدة جديدة للحالة التالية، مع الإشارة إلى الأب  والحركة التي أدت إليها وعدد الفرونتير الحالي 
+                Node* child = new Node(nextStates[i], current, actions[i], frontier.size(),0);// إنشاء عقدة جديدة للحالة التالية، مع الإشارة إلى الأب  والحركة التي أدت إليها وعدد الفرونتير الحالي 
                 frontier.push(child);// إضافة العقدة الجديدة إلى الفرونتير 
                 visited.push_back(nextStates[i]); // إضافة الحالة التالية إلى لمنع زيارتها مرة أخرى في المستقبل
             }
@@ -169,7 +169,7 @@ void DFS(const State &start, const State &goal)
     stack<Node*> frontier;// لتخزين العقد التي سيتم استكشافها
     vector<State> visited; // لتخزين الحالات التي تم زيارتها لمنع تكرار ال states في visited
 
-    Node* root = new Node(start, NULL, Direction::none, 0);// تم إنشاء عقدة الجذر باستخدام الحالة الابتدائية، لا يوجد أب لها ولا حركة وعدد فرونتير =0
+    Node* root = new Node(start, NULL, Direction::none, 0,0);// تم إنشاء عقدة الجذر باستخدام الحالة الابتدائية، لا يوجد أب لها ولا حركة وعدد فرونتير =0
     frontier.push(root);// إضافة عقدة الجذر إلى الفرونتير
     visited.push_back(start); //اضافة الحالة الابتدائية إلى visited لمنع زيارتها مرة أخرى 
 
@@ -212,7 +212,7 @@ void DFS(const State &start, const State &goal)
 
             if(!found) // إذا الحالة جديدة يتم الإنشاء
             {
-                Node* child = new Node(nextStates[i], current, actions[i], frontier.size());//
+                Node* child = new Node(nextStates[i], current, actions[i], frontier.size(),0);//
                 frontier.push(child);
                 visited.push_back(nextStates[i]);
             }
@@ -247,10 +247,7 @@ void DFS(const State &start, const State &goal)
                 else if(n->action == Direction::Left) cout << "LEFT";
                 else if(n->action == Direction::Right) cout << "RIGHT";
 
-                cout << " -> State: (";
-
-                cout << n->state.agent_pos.row << ","
-                     << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
+                cout << " -> State: ("; cout << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
 
                 cout << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");cout << ")";
 
@@ -264,5 +261,114 @@ void DFS(const State &start, const State &goal)
     }
 
     cout << "Nodes Expanded: " << nodes << endl;
+    cout << "time: " << time << " ms\n";
+}
+
+
+// تم استخدام دالة مساعدة للتحكم في عمق البحث في IDS
+Node*control_depth_limited(const State &start, const State &goal, int limit)
+{
+    stack<Node*> frontier;
+    vector<State> visited;
+
+    Node* root = new Node(start, NULL, Direction::none, 0, 0);
+    frontier.push(root);
+
+    while(!frontier.empty()) {
+
+        Node* current = frontier.top();
+        frontier.pop();
+
+        //اذا تم العثور على الهدف، نرجع العقدة الحالية
+        if(isGoal(current->state, goal)) {
+            return current;
+        }
+
+        // إذا تجاوزنا الحد الأقصى للعمق، لا نتابع استكشاف هذه العقدة
+        if(current->depth >= limit)
+            continue;
+
+        vector<State> nextStates = getSuccessors(current->state);// الحصول على الحالات التالية الممكنة من الحالة الحالية بناءً على الحركات الأربعة
+
+        Direction actions[4] = {
+            Direction::Up,
+            Direction::Down,
+            Direction::Left,
+            Direction::Right
+        };
+
+        for(int i = nextStates.size()-1; i >= 0; i--) 
+        {
+
+            bool found = false;// للتحقق مما إذا كانت الحالة التالية قد تم زيارتها بالفعل
+
+             // البحث في visited
+            for(int j = 0; j < visited.size(); j++) {
+                if(comparison_state(nextStates[i], visited[j])) {
+                    found = true;// تم العثور على الحالة في visited، نعتبرها حالة مكررة
+                    break;
+                }
+            }
+
+            if(!found) 
+            {   // إذا الحالة جديدة يتم الإنشاءوزيادة العمق ب 1
+                Node* child = new Node( nextStates[i], current,actions[i], frontier.size(),current->depth + 1);
+                frontier.push(child);
+                visited.push_back(nextStates[i]);// إضافة الحالة التالية إلى لمنع زيارتها مرة أخرى في المستقبل
+            }
+        }
+    }
+
+    return NULL;
+}
+
+
+void IDS(const State &start, const State &goal)
+{
+    auto startTime = chrono::high_resolution_clock::now();// بدء قياس الوقت
+
+    for(int depth = 0; depth <= 50; depth++)
+     {
+        // استدعاء دالة البحث المحدود التي تتحكم في عمق البحث وبها زيادة في العمق ب 1 في كل مرة حتى نصل إلى الحد الأقصى للعمق أو نجد الهدف
+        Node* result = control_depth_limited(start, goal, depth);
+        if(result != NULL)
+         { cout << "goal found \n";
+           cout << "depth now : " << depth << endl;
+
+            vector<Node*> path;// لتخزين المسار من الهدف إلى الجذر
+            Node* temp = result;// بدء من عقدة الهدف
+
+            while(temp != NULL)
+             {
+                path.push_back(temp);// إضافة العقدة الحالية إلى المسار
+                temp = temp->parent;// الانتقال إلى الأب
+            }
+
+            for(int i=path.size()-1;i>= 0;i--) 
+            {
+                 Node* n = path[i];// الحصول على العقدة الحالية من المسار
+
+                if(n->parent != NULL)
+                 {
+                    if(n->action == Direction::Up) cout << "UP";
+                    else if(n->action == Direction::Down) cout << "DOWN";
+                    else if(n->action == Direction::Left) cout << "LEFT";
+                    else if(n->action == Direction::Right) cout << "RIGHT";
+
+                    cout << " -> ("  << n->state.agent_pos.row << "," << n->state.agent_pos.col << ")" << ", f:" << n->state.fuel << "  ";
+                     cout <<"("<<(n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); cout << ")" ;
+                    // printCoins(n->state.collected_coins);cout << ")" ;
+                     cout << " frontier: " << n->frontier_size  << endl;
+        
+                }
+            }
+
+            break;// تم العثور على الهدف، نخرج من حلقة التكرار
+        }
+    }
+
+    auto endTime = chrono::high_resolution_clock::now();// نهاية قياس الوقت
+    double time = chrono::duration<double, milli>(endTime - startTime).count();// حساب الوقت  بالميلي ثانية
+
     cout << "time: " << time << " ms\n";
 }
