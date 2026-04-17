@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <queue>
+#include <stack>
 using namespace std;
 
 class Graph
@@ -22,32 +23,27 @@ public:
             lst[j].push_back(i);
         }
     }
-    void dfsHelper(int node, bool *visited ){
-        visited[node] = true;
-        cout<<node<<",";
-        //make a dfs call on all its unvisited neighbours
-        for(int nbr : lst[node]){
-            if(!visited[nbr]){
-                dfsHelper(nbr, visited);
 
+    void ids(int source)
+    {
+        vector<bool> visited(V, false);
+        stack<int> st;
+        st.push(source);
+        visited[source] = true;
+
+        while(!st.empty()){
+            int node = st.top();
+            cout << node << endl;
+            st.pop();
+            for(auto nbr : lst[node]){
+                if(!visited[nbr]){
+                    visited[nbr] = true;
+                    st.push(nbr);
+                }
             }
-
         }
-        return;
-
-
+        
     }
-
-    void dfs(int source){
-        bool *visited = new bool[V]{0};
-        dfsHelper(source, visited);
-
-
-
-
-    }
-
-    
 };
 
 int main()
@@ -58,6 +54,6 @@ int main()
     g.addEdge(2, 5);
     g.addEdge(3, 4);
     g.addEdge(5, 6);
-    g.dfs(1);
+    g.ids(1);
     return 0;
 }
