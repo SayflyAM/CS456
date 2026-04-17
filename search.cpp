@@ -5,6 +5,7 @@
 #include <chrono>// used for measuring execution time
 #include <iostream>
 #include <stack> // used for DFS
+#include <fstream>
 
 using namespace std;
 
@@ -29,7 +30,7 @@ bool comparison_state(const State &a, const State &b) {
 }
 */ // لو استخدمت بوليان مش ح نختاجها 
 //SearchResult BFS(const State &start, const State &goal);
- void BFS(const State &start, const State &goal) 
+ void BFS(const State &start, const State &goal, ofstream &out) 
 {
     
     int nodes = 0;
@@ -112,54 +113,51 @@ bool comparison_state(const State &a, const State &b) {
     //طباعة حركات المسار إذا تم العثور على الهدف
     if(goalNode != NULL)
      {
-     cout <<"The goal has been reached\n";
-     cout << "Path:\n"; vector<Node*> fullPath;// لتخزين المسار الكامل من الجذر إلى الهدف
+     out <<"The goal has been reached\n";
+     out << "Path:\n";
+     vector<Node*> fullPath;// لتخزين المسار الكامل من الجذر إلى الهدف
 
       Node* temp = goalNode;// بدء من عقدة الهدف
       while(temp != NULL) // طالما لم نصل إلى الجذر
        {
       fullPath.push_back(temp);// إضافة العقدة الحالية إلى المسار الكامل
       temp = temp->parent; // الانتقال إلى الأب
-}
+      }
 
-for(int i = fullPath.size()-1; i >= 0; i--) // طباعة المسار من الجذر إلى الهدف
-{   Node* n = fullPath[i];// الحصول على العقدة الحالية من المسار الكامل
+    for(int i = fullPath.size()-1; i >= 0; i--) // طباعة المسار من الجذر إلى الهدف
+     {   Node* n = fullPath[i];// الحصول على العقدة الحالية من المسار الكامل
 
     if(n->parent != NULL) // إذا لم تكن عقدة الجذر، نطبع الحركة والحالة
     {
 
         // الحركة
-        if(n->action == Direction::Up) cout << "UP";
-        else if(n->action == Direction::Down) cout << "DOWN";
-        else if(n->action == Direction::Left) cout << "LEFT";
-        else if(n->action == Direction::Right) cout << "RIGHT";
+        if(n->action == Direction::Up) out << "UP";
+        else if(n->action == Direction::Down) out << "DOWN";
+        else if(n->action == Direction::Left) out << "LEFT";
+        else if(n->action == Direction::Right) out << "RIGHT";
 
-        cout << " -> State: (";
+        out << " -> State: (";
 
         // الموقع & الوقود
-        cout << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
+        out << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
 
         // العملات
-        cout << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); cout << ")" ;
+        out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); out << ")" ;
        // printCoins(n->state.collected_coins);cout << ")" ;
-        cout << " frontier: " << n->frontier_size  << endl;
+        out << " frontier: " << n->frontier_size  << endl;
         
 }
 }
     } else
-     {
-        cout << "No Solution\n";
-    }
+     { out << "No Solution\n"; }
 
-    cout << "nodes Expanded: " << nodes << endl;
-    cout << "time: " << time << " ms\n";
+    out << "nodes Expanded: " << nodes << endl;
+    out << "time: " << time << " ms\n";
     return ;
-
-    //return {goalNode != NULL, path, nodes, time};// إرجاع نتيجة البحث
 }
-#include <stack>
 
-void DFS(const State &start, const State &goal) 
+
+void DFS(const State &start, const State &goal, ofstream &out) 
 {
     int nodes = 0;// عداد للعقد التي تم توسيعها
     Node* goalNode = NULL; // لتخزين عقدة الهدف إذا تم العثور عليها
@@ -195,7 +193,7 @@ void DFS(const State &start, const State &goal)
             Direction::Left,
             Direction::Right
         };
-        //cout << "next states: " << nextStates.size() << endl;
+    
         for(int i = nextStates.size() - 1; i >= 0; i--) // لكل حالة تالية (نبدأ من النهاية لضمان استكشاف الحالات بالترتيب الصحيح في DFS)
          {
 
@@ -225,8 +223,8 @@ void DFS(const State &start, const State &goal)
     // display 
     if(goalNode != NULL)
     {
-        cout << "Result Reached (Goal Found)\n";
-        cout << "Path:\n";
+        out << "Result Reached (Goal Found)\n";
+        out << "Path:\n";
 
         vector<Node*> fullPath;
         Node* temp = goalNode;
@@ -242,32 +240,31 @@ void DFS(const State &start, const State &goal)
 
             if(n->parent != NULL) {
 
-                if(n->action == Direction::Up) cout << "UP";
-                else if(n->action == Direction::Down) cout << "DOWN";
-                else if(n->action == Direction::Left) cout << "LEFT";
-                else if(n->action == Direction::Right) cout << "RIGHT";
+                if(n->action == Direction::Up) out << "UP";
+                else if(n->action == Direction::Down) out << "DOWN";
+                else if(n->action == Direction::Left) out << "LEFT";
+                else if(n->action == Direction::Right) out << "RIGHT";
 
-                cout << " -> State: ("; cout << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
+                out << " -> State: ("; out << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
 
-                cout << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");cout << ")";
+                out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");out << ")";
 
-                cout << " frontier: " << n->frontier_size << endl;
+                out << " frontier: " << n->frontier_size << endl;
             }
         }
     }
     else
     {
-        cout << "No Solution\n";
+        out << "No Solution\n";
     }
 
-    cout << "Nodes Expanded: " << nodes << endl;
-    cout << "time: " << time << " ms\n";
+    out << "Nodes Expanded: " << nodes << endl;
+    out << "time: " << time << " ms\n";
 }
 
-
 // تم استخدام دالة مساعدة للتحكم في عمق البحث في IDS
-Node*control_depth_limited(const State &start, const State &goal, int limit)
-{
+Node*control_depth_limited(const State &start, const State &goal, int limit, int &nodes)
+{  
     stack<Node*> frontier;
     vector<State> visited;
 
@@ -278,6 +275,7 @@ Node*control_depth_limited(const State &start, const State &goal, int limit)
 
         Node* current = frontier.top();
         frontier.pop();
+        nodes++;
 
         //اذا تم العثور على الهدف، نرجع العقدة الحالية
         if(isGoal(current->state, goal)) {
@@ -323,17 +321,24 @@ Node*control_depth_limited(const State &start, const State &goal, int limit)
 }
 
 
-void IDS(const State &start, const State &goal)
-{
-    auto startTime = chrono::high_resolution_clock::now();// بدء قياس الوقت
+void IDS(const State &start, const State &goal , ofstream &out)
+{   Node* n ;// ا
 
+    auto startTime = chrono::high_resolution_clock::now();// بدء قياس الوقت
+     
+    int nodes = 0;
     for(int depth = 0; depth <= 50; depth++)
      {
+        nodes = 0; //  عدد العقد التي تم توسيعها في هذا العمق
+
         // استدعاء دالة البحث المحدود التي تتحكم في عمق البحث وبها زيادة في العمق ب 1 في كل مرة حتى نصل إلى الحد الأقصى للعمق أو نجد الهدف
-        Node* result = control_depth_limited(start, goal, depth);
+        Node* result = control_depth_limited(start, goal, depth, nodes);
+
         if(result != NULL)
-         { cout << "goal found \n";
-           cout << "depth now : " << depth << endl;
+         { 
+            
+            out << "goal found \n";
+            out << "depth now : " << depth << endl;
 
             vector<Node*> path;// لتخزين المسار من الهدف إلى الجذر
             Node* temp = result;// بدء من عقدة الهدف
@@ -342,6 +347,7 @@ void IDS(const State &start, const State &goal)
              {
                 path.push_back(temp);// إضافة العقدة الحالية إلى المسار
                 temp = temp->parent;// الانتقال إلى الأب
+                
             }
 
             for(int i=path.size()-1;i>= 0;i--) 
@@ -350,25 +356,36 @@ void IDS(const State &start, const State &goal)
 
                 if(n->parent != NULL)
                  {
-                    if(n->action == Direction::Up) cout << "UP";
-                    else if(n->action == Direction::Down) cout << "DOWN";
-                    else if(n->action == Direction::Left) cout << "LEFT";
-                    else if(n->action == Direction::Right) cout << "RIGHT";
+                    if(n->action == Direction::Up) out << "UP";
+                    else if(n->action == Direction::Down) out << "DOWN";
+                    else if(n->action == Direction::Left) out << "LEFT";
+                    else if(n->action == Direction::Right) out << "RIGHT";
 
-                    cout << " -> ("  << n->state.agent_pos.row << "," << n->state.agent_pos.col << ")" << ", f:" << n->state.fuel << "  ";
-                     cout <<"("<<(n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); cout << ")" ;
+                    out << " -> ("  << n->state.agent_pos.row << "," << n->state.agent_pos.col << ")" << ", f:" << n->state.fuel << "  ";
+                     out <<"("<<(n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); out << ")" ;
                     // printCoins(n->state.collected_coins);cout << ")" ;
-                     cout << " frontier: " << n->frontier_size  << endl;
+                     out << " frontier: " << n->frontier_size  << endl;
         
                 }
+               
             }
 
-            break;// تم العثور على الهدف، نخرج من حلقة التكرار
+           auto endTime = chrono::high_resolution_clock::now();// نهاية قياس الوقت
+           double time = chrono::duration<double, milli>(endTime - startTime).count();// حساب الوقت  بالميلي ثانية
+
+           out << "nodes Expanded: " << nodes << endl; //  فقط depth الأخير
+           out << "time: " << time << " ms\n";  
+
+           return; 
         }
+        
     }
+       out << "nodes Expanded: " << nodes << endl;
+    // إذا لم يتم العثور على الهدف بعد استكشاف جميع الأعماق حتى الحد الأقصى، نطبع "No Solution"
+     out << "No Solution\n";
 
     auto endTime = chrono::high_resolution_clock::now();// نهاية قياس الوقت
     double time = chrono::duration<double, milli>(endTime - startTime).count();// حساب الوقت  بالميلي ثانية
-
-    cout << "time: " << time << " ms\n";
+    
+    out << "time: " << time << " ms\n";
 }

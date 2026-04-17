@@ -6,8 +6,7 @@ using namespace std;
 
 enum class Direction
 {
-
-    Up,
+     Up,
     Down,
     Left,
     none,// تم اضافتها لتمثل الحالة الأولية (عقدة الجذر ) حيث لا توجد حركة 
@@ -19,6 +18,9 @@ struct Position
     int row;
     int col;
 };
+
+extern Position coins[4]; // العملات
+extern Position fuel_place; // محطة الوقود
 
 struct State
 {
