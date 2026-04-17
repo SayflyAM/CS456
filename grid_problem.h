@@ -27,8 +27,8 @@ struct State
     Position agent_pos;
     int fuel;
     // We have Using bool for every coins C1-C4 but it not good  for memory, that way we have used a bitmask for coins to save memory.
-    //uint8_t collected_coins;
-    bool c1, c2, c3, c4;// تم استخدام 4 متغيرات بوليانية لتمثيل جمع كل عملة بشكل منفصل بدلاً من استخدام
+    uint8_t collected_coins;
+   // bool c1, c2, c3, c4;// تم استخدام 4 متغيرات بوليانية لتمثيل جمع كل عملة بشكل منفصل بدلاً من استخدام
 };
 struct Node {
     State state;// الحالة الحالية

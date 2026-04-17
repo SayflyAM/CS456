@@ -14,21 +14,23 @@ bool comparison_state(const State &a, const State &b) {
     return a.agent_pos.row == b.agent_pos.row &&
            a.agent_pos.col == b.agent_pos.col &&
            a.fuel == b.fuel &&
-           //a.collected_coins == b.collected_coins;
-            a.c1 == b.c1 && a.c2 == b.c2 && a.c3 == b.c3 &&a.c4 == b.c4;
+           a.collected_coins == b.collected_coins;
+           // a.c1 == b.c1 && a.c2 == b.c2 && a.c3 == b.c3 &&a.c4 == b.c4;
 }
 
 //display the coins 
-/*void printCoins(uint8_t coins) 
+void printCoins(uint8_t coins, ofstream &out) 
 {
    for(int i = 0; i < 4; i++) {
-     if(coins & (1 << i))  cout << "t";
-      else cout << "f";
+     if(coins & (1 << i))  out << "t";
+      else out << "f";
 
-    if(i < 3) cout << ",";// للفصل بين العملات في طباعة 
+    if(i < 3) out << ",";// للفصل بين العملات في طباعة 
     }
 }
-*/ // لو استخدمت بوليان مش ح نختاجها 
+
+
+// لو استخدمت بوليان مش ح نختاجها 
 //SearchResult BFS(const State &start, const State &goal);
  void BFS(const State &start, const State &goal, ofstream &out) 
 {
@@ -142,8 +144,8 @@ bool comparison_state(const State &a, const State &b) {
         out << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
 
         // العملات
-        out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); out << ")" ;
-       // printCoins(n->state.collected_coins);cout << ")" ;
+        //out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); out << ")" ;
+        printCoins(n->state.collected_coins, out);out << ")" ;
         out << " frontier: " << n->frontier_size  << endl;
         
 }
@@ -246,8 +248,8 @@ void DFS(const State &start, const State &goal, ofstream &out)
                 else if(n->action == Direction::Right) out << "RIGHT";
 
                 out << " -> State: ("; out << n->state.agent_pos.row << ","  << n->state.agent_pos.col << ", f:" << n->state.fuel << ", ";
-
-                out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");out << ")";
+                //  out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");out << ")";
+                printCoins(n->state.collected_coins, out);out << ")";
 
                 out << " frontier: " << n->frontier_size << endl;
             }
@@ -361,9 +363,10 @@ void IDS(const State &start, const State &goal , ofstream &out)
                     else if(n->action == Direction::Left) out << "LEFT";
                     else if(n->action == Direction::Right) out << "RIGHT";
 
-                    out << " -> ("  << n->state.agent_pos.row << "," << n->state.agent_pos.col << ")" << ", f:" << n->state.fuel << "  ";
-                     out <<"("<<(n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << "," << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f"); out << ")" ;
-                    // printCoins(n->state.collected_coins);cout << ")" ;
+                    out << " -> ("  << n->state.agent_pos.row << "," << n->state.agent_pos.col << ")" << ", f:" << n->state.fuel << " ( ";
+                    //  out << (n->state.c1 ? "t" : "f") << "," << (n->state.c2 ? "t" : "f") << ","  << (n->state.c3 ? "t" : "f") << "," << (n->state.c4 ? "t" : "f");out << ")";
+                     
+                     printCoins(n->state.collected_coins, out);  out << ")";
                      out << " frontier: " << n->frontier_size  << endl;
         
                 }
