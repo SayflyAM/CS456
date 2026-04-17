@@ -32,15 +32,17 @@ struct Node {
     State state;// الحالة الحالية
     Node* parent;//بوينتر إلى الأب في شجرة البحث
     Direction action; // الحركة التي أدت إلى هذه الحالة
-    int frontier_size;//
+    int frontier_size;
+    int depth;// used for IDS
    
     // Constructor
-    Node(State s, Node* p, Direction a, int f ) 
+    Node(State s, Node* p, Direction a, int f, int d ) 
     {
         state = s;
         parent = p;
         action = a;
         frontier_size = f;
+        depth = d;
     }
 };
 /*struct SearchResult

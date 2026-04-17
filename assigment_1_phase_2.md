@@ -1,4 +1,4 @@
-Pass by value:
+<img width="962" height="315" alt="image" src="https://github.com/user-attachments/assets/9727c911-6ccd-4cec-809a-8979ad86ae91" />Pass by value:
 This so bad because when we will use BFS and it expands 100,000 nodes, this will triggered 100,000 massive memory.
 bool isGoal(State s ) {
     retrun s.fuel == 0;
@@ -40,11 +40,24 @@ ________________________________________________________________________________
 
 goal.agent_pos = {1,1};// الهدف هو الوصول إلى (1,1)
 
-ممكن توضيح كيف عرفت انه
-(1,1) that is the goal why do not  be like (  1, 1, ?, t, t, t, t )
+ممكن توضيح كيف عرفت انه 
+ جواب : موجود في فايل  الاسايمنت ورقة 2  
+ State: < X -pos, Y -pos, Fuel,C1, C2, C3, C4 >  
+Goal: < 1, 1, ?, t, t, t, t>
+ 
 
+(1,1) that is the goal why do not  be like (  1, 1, ?, t, t, t, t )
 --------------------------------------------------------------------------------------------------
-ممكن شرح لهدا شنو 
+ممكن شرح لهدا شنو
+
+جواب : هذا ال10 حالات يلي بنختبروهم لكل الخوارزميات  وموجود ف كومنت تمثيل متاعه
+// { {tests[i].agent_pos.row, tests[i].agent_pos.col}, tests[i].fuel, tests[i].collected_coins }
+
+ويكافئ هذا 
+ State: < X -pos, Y -pos, Fuel,C1, C2, C3, C4 > 
+ 
+ بس لان انت ف بداية استخدمت Bitmasks وانا مش فاهمة طريقة استخدامه مية ف مية مع ان فهمت معناه وان افضل  من bool  بس مش متعودة بيه ف درت bool وقلت بعد م نتاكد من كود تمام يشتغل ونفهم طريقته bitmasks عادي  نلغوا كومنت ونردوه  
+ 
 //Represent the tests in an array of type State, each test containing a different location for the (x,y) agent, a different amount of fuel, and coins with a value of 0.
      // { {tests[i].agent_pos.row, tests[i].agent_pos.col}, tests[i].fuel, tests[i].collected_coins }
     /*tests[0] = {{9,9}, 10, 0};
@@ -70,14 +83,21 @@ bool isGoal(const State &current_state, const State &goal_state) {
           current_state.c3 && current_state.c4;
 }
 
-تمام هنا مشتغله صح بخصوص 
+تمام هنا مشتغله صح بخصوص  
 collected all coins (C1 to C4  == 15 in binary)
 
 لكن في ملف 
 grid_problem.h
 سطر 29 
 علاش كاتبه bool 
+ جواب : 
+  bool c1, c2, c3, c4;// تم استخدام 4 متغيرات بوليانية لتمثيل جمع كل عملة بشكل منفصل بدلاً من استخدام
+  هنا لان نبي نمثل عملات ب t or f يعني يلي يهمني وان وصلت للقول كلهم يتغيروا للترو  مش جمع ونتاكد ان وصلت  لل 15 in binary
 --------------------------------------------------------------------------------------------------
+
+ 
+جواب : قصدك تعريف دالة ؟؟ علاش غيرته لفويد لان حطيت طباعة فيه ودرتله استدعاء ف ميين  قلت ليش لازم يرجعلي بالبيانات للمين معنديش شي ثاتي بعده بنخدمه ف خليته يطبع ف نفس دالة وخلاص 
+ولو قصدك ك دالة كاملة تو نشرخ تمام 
 نبي شرح لهدا كيف درتيه بطريقة الهادي void BFS(const State &start, const State &goal) 
 {
     

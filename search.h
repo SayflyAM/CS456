@@ -3,3 +3,4 @@
 //SearchResult BFS(const State &start, const State &goal);
 void BFS(const State &start, const State &goal);
 void DFS(const State &start, const State &goal);
+void IDS(const State &start, const State &goal);

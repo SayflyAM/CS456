@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-
+     int num_algorithm;
     State goal;
     
     goal.agent_pos = {1,1};// الهدف هو الوصول إلى (1,1)
@@ -44,16 +44,39 @@ int main() {
    tests[7] = {{4,8}, 1, false, false, false, false};
    tests[8] = {{7,7}, 20, false, false, false, false};
    tests[9] = {{9,2}, 2, false, false, false, false};
-    //display the tests
-    for(int i = 0; i < 10; i++) {
+   
 
+
+   // display
+ cout << "1-BFS, 2-DFS, 3-IDS\n";
+ cout << "Enter the number of the search algorithm you want to use: "; cin >> num_algorithm;
+
+  if(num_algorithm == 1) 
+  {
+    for(int i = 0; i < 10; i++)
+     {
         cout << "\n****** test " << i+1 << " ********\n";
-        cout << "Start State: ("<< tests[i].agent_pos.row << ","
-         << tests[i].agent_pos.col<< ", fuel:" << tests[i].fuel << ")\n";
-        // BFS(tests[i], goal);cout<<endl<<endl;
-         DFS(tests[i], goal);cout<<endl<<endl;
-        
+        cout << "Start State: ("<< tests[i].agent_pos.row << ","<< tests[i].agent_pos.col << ", fuel:" << tests[i].fuel << ")\n";
+        BFS(tests[i], goal); cout << endl;
+     }
+   }
+ else if(num_algorithm == 2)
+ {
+    for(int i = 0; i < 10; i++) {
+        cout << "\n****** test " << i+1 << " ********\n";
+        cout << "Start State: ("<< tests[i].agent_pos.row << ","<< tests[i].agent_pos.col<< ", fuel:" << tests[i].fuel << ")\n";
+        DFS(tests[i], goal);cout << endl;
     }
+  }
+ else if(num_algorithm == 3)
+ {
+    for(int i = 0; i < 10; i++) {
+        cout << "\n****** test " << i+1 << " ********\n";
+        cout << "Start State: ("<< tests[i].agent_pos.row << ","<< tests[i].agent_pos.col << ", fuel:" << tests[i].fuel << ")\n";
+        IDS(tests[i], goal); cout  << endl;
+    }
+ }
+  else {cout << "invalid choice!\n";}
 
     return 0;
 }
