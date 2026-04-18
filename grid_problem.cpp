@@ -1,19 +1,16 @@
 #include "grid_problem.h"
 
-
-
-Position coins[4];
-Position fuel_place;
+Position coins[4];// العملات
+Position fuel_place;// محطة الوقود
+Position block[3]; // الحواجز
 
 //تحقق مما إذا كانت الحالة الحالية هي حالة الهدف أم لا
-//goal state is defined as the agent being at position (1,1) and having collected all coins (C1 to C4  == 15 in binary)
 bool isGoal(const State &current_state, const State &goal_state) {
 
     return current_state.agent_pos.row == goal_state.agent_pos.row &&
            current_state.agent_pos.col == goal_state.agent_pos.col &&
-           current_state.collected_coins == goal_state.collected_coins;
-        //  current_state.c1 && current_state.c2 &&
-         // current_state.c3 && current_state.c4;
+            current_state.c1 && current_state.c2 &&
+            current_state.c3 && current_state.c4;
 }
 
 //الحصول على الحالات التالية الممكنة من الحالة الحالية بناءً على الحركات الأربعة (Up, Down, Left, Right)
@@ -51,8 +48,19 @@ vector<State> getSuccessors(const State &current_state)
          //grid size is 10x10 
          // إذا كانت الحركة تؤدي إلى الخروج من الشبكة، نتجاهلها
         if(next.agent_pos.row < 1 || next.agent_pos.row > 10 || next.agent_pos.col < 1 || next.agent_pos.col > 10)
-            continue; 
+            continue;
 
+          bool isblock = false;  // التحقق من الجدران (إذا كانت الحركة تؤدي إلى حاجز نتجاهلها)
+          for(int w = 0; w < 3; w++)
+          {
+           if(next.agent_pos.row == block[w].row && next.agent_pos.col == block[w].col)
+            {
+               isblock = true;
+               break;
+                 }
+           }
+
+       if(isblock)continue;
         
         next.fuel--;// كل حركة تستهلك وقود بقيمة 1 
         
@@ -62,12 +70,10 @@ vector<State> getSuccessors(const State &current_state)
      {
      if(next.agent_pos.row == coins[c].row && next.agent_pos.col == coins[c].col) 
      {
-
-          next.collected_coins |= (1 << c);
-      /*if(c == 0) next.c1 = true;
+      if(c == 0) next.c1 = true;
       if(c == 1) next.c2 = true;
       if(c == 2) next.c3 = true;
-      if(c == 3) next.c4 = true;*/
+      if(c == 3) next.c4 = true;
      }
   }
 
@@ -76,19 +82,17 @@ vector<State> getSuccessors(const State &current_state)
      for(int c = 0; c < 4; c++) 
      {
        if(next.agent_pos.row == coins[c].row && next.agent_pos.col == coins[c].col) 
-       { /* if(next.agent_pos.row == 2 && next.agent_pos.col == 3)  next.c1 = true;
+       {  if(next.agent_pos.row == 2 && next.agent_pos.col == 3)  next.c1 = true;
           if(next.agent_pos.row == 6 && next.agent_pos.col == 2)  next.c2 = true;
           if(next.agent_pos.row == 5 && next.agent_pos.col == 7)  next.c3 = true;
-          if(next.agent_pos.row == 8 && next.agent_pos.col == 8)  next.c4 = true;*/
-           next.collected_coins |= (1 << c);
+          if(next.agent_pos.row == 8 && next.agent_pos.col == 8)  next.c4 = true;
+          
          }
      }
   
        if(next.agent_pos.row == fuel_place.row && next.agent_pos.col == fuel_place.col)
          {  next.fuel = 20;} //يتخقق مما إذا كان الوكيل قد وصل إلى محطة الوقود، إذا كان كذلك، يتم إعادة تعبئة الوقود
-          /* يعني أي مكان تم تحديده في fuel_station
-              هو اللي يعبي الوقود
-            */ 
+          
           next_States.push_back(next);// إضافة الحالة الجديدة إلى قائمة الحالات التالية
   }
 

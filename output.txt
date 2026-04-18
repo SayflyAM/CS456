@@ -1,836 +1,1329 @@
 **********************************************BFS************************************************
 
 ****** test 1 ********
-Start State: (8,10, fuel:6)
-The goal has been reached
+Start State: (3,9, fuel:20)
+goal found
+Level: 24
 Path:
-DOWN -> State: (9,10, f:5, f,f,f,f) frontier: 1
-DOWN -> State: (10,10, f:4, f,f,f,f) frontier: 4
-DOWN -> State: (10,9, f:3, f,f,f,f) frontier: 8
-DOWN -> State: (10,8, f:2, t,f,t,f) frontier: 12
-DOWN -> State: (10,7, f:1, t,f,t,f) frontier: 17
-DOWN -> State: (10,6, f:20, t,f,t,f) frontier: 26
-UP -> State: (9,6, f:19, t,f,t,f) frontier: 4
-UP -> State: (8,6, f:18, t,f,t,f) frontier: 5
-UP -> State: (7,6, f:17, t,f,t,f) frontier: 8
-UP -> State: (6,6, f:16, t,f,t,f) frontier: 18
-UP -> State: (5,6, f:15, t,f,t,f) frontier: 25
-UP -> State: (4,6, f:14, t,f,t,t) frontier: 39
-UP -> State: (3,6, f:13, t,f,t,t) frontier: 46
-UP -> State: (2,6, f:12, t,f,t,t) frontier: 65
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 80
-DOWN -> State: (1,5, f:10, t,t,t,t) frontier: 110
-DOWN -> State: (1,4, f:9, t,t,t,t) frontier: 139
-DOWN -> State: (1,3, f:8, t,t,t,t) frontier: 171
-DOWN -> State: (1,2, f:7, t,t,t,t) frontier: 201
-DOWN -> State: (1,1, f:6, t,t,t,t) frontier: 237
-nodes Expanded: 1237
-time: 65.726 ms
+DOWN -> State: (4,9, f:19, f,f,f,f) frontier: 1
+DOWN -> State: (5,9, f:18, f,f,f,f) frontier: 6
+DOWN -> State: (6,9, f:17, f,f,f,f) frontier: 10
+LEFT -> State: (6,8, f:20, f,f,f,f) frontier: 15
+DOWN -> State: (7,8, f:19, f,f,f,f) frontier: 25
+DOWN -> State: (8,8, f:18, f,f,f,f) frontier: 35
+LEFT -> State: (8,7, f:17, f,f,f,f) frontier: 51
+LEFT -> State: (8,6, f:16, f,f,t,f) frontier: 59
+UP -> State: (7,6, f:15, f,f,t,f) frontier: 80
+UP -> State: (6,6, f:14, f,f,t,f) frontier: 98
+UP -> State: (5,6, f:13, f,f,t,f) frontier: 138
+UP -> State: (4,6, f:12, f,f,t,f) frontier: 165
+UP -> State: (3,6, f:11, f,f,t,f) frontier: 225
+UP -> State: (2,6, f:10, f,t,t,f) frontier: 255
+UP -> State: (1,6, f:9, f,t,t,f) frontier: 324
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 356
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 428
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 450
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 517
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 525
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 142
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 129
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 148
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 169
+nodes Expanded: 4376
+time: 304.078 ms
 
 
 ****** test 2 ********
-Start State: (2,2, fuel:10)
-No Solution
-nodes Expanded: 333
-time: 0 ms
+Start State: (10,6, fuel:13)
+goal found
+Level: 22
+Path:
+UP -> State: (9,6, f:12, f,f,f,f) frontier: 0
+UP -> State: (8,6, f:11, f,f,t,f) frontier: 2
+UP -> State: (7,6, f:10, f,f,t,f) frontier: 5
+UP -> State: (6,6, f:9, f,f,t,f) frontier: 12
+RIGHT -> State: (6,7, f:8, f,f,t,f) frontier: 24
+RIGHT -> State: (6,8, f:20, f,f,t,f) frontier: 37
+UP -> State: (5,8, f:19, f,f,t,f) frontier: 50
+UP -> State: (4,8, f:18, f,f,t,f) frontier: 69
+UP -> State: (3,8, f:17, f,f,t,f) frontier: 92
+UP -> State: (2,8, f:16, f,f,t,f) frontier: 117
+LEFT -> State: (2,7, f:15, f,f,t,f) frontier: 140
+LEFT -> State: (2,6, f:14, f,t,t,f) frontier: 174
+UP -> State: (1,6, f:13, f,t,t,f) frontier: 198
+DOWN -> State: (1,5, f:12, f,t,t,f) frontier: 153
+DOWN -> State: (1,4, f:11, f,t,t,f) frontier: 103
+DOWN -> State: (1,3, f:10, f,t,t,f) frontier: 122
+DOWN -> State: (1,2, f:9, f,t,t,t) frontier: 136
+UP -> State: (2,2, f:8, f,t,t,t) frontier: 161
+DOWN -> State: (3,2, f:7, f,t,t,t) frontier: 185
+LEFT -> State: (3,1, f:6, t,t,t,t) frontier: 220
+UP -> State: (2,1, f:5, t,t,t,t) frontier: 268
+UP -> State: (1,1, f:4, t,t,t,t) frontier: 327
+nodes Expanded: 2618
+time: 110.944 ms
 
 
 ****** test 3 ********
-Start State: (8,5, fuel:2)
-No Solution
-nodes Expanded: 14
-time: 0 ms
+Start State: (5,1, fuel:8)
+goal found
+Level: 28
+Path:
+DOWN -> State: (6,1, f:7, f,f,f,f) frontier: 1
+LEFT -> State: (6,2, f:6, f,f,f,f) frontier: 5
+LEFT -> State: (6,3, f:5, f,f,f,f) frontier: 10
+RIGHT -> State: (6,4, f:4, f,f,f,f) frontier: 16
+RIGHT -> State: (6,5, f:3, f,f,f,f) frontier: 25
+LEFT -> State: (6,6, f:2, f,f,f,f) frontier: 37
+RIGHT -> State: (6,7, f:1, f,f,f,f) frontier: 50
+RIGHT -> State: (6,8, f:20, f,f,f,f) frontier: 62
+DOWN -> State: (7,8, f:19, f,f,f,f) frontier: 1
+DOWN -> State: (8,8, f:18, f,f,f,f) frontier: 5
+LEFT -> State: (8,7, f:17, f,f,f,f) frontier: 14
+LEFT -> State: (8,6, f:16, f,f,t,f) frontier: 20
+UP -> State: (7,6, f:15, f,f,t,f) frontier: 28
+UP -> State: (6,6, f:14, f,f,t,f) frontier: 36
+UP -> State: (5,6, f:13, f,f,t,f) frontier: 55
+UP -> State: (4,6, f:12, f,f,t,f) frontier: 66
+UP -> State: (3,6, f:11, f,f,t,f) frontier: 87
+UP -> State: (2,6, f:10, f,t,t,f) frontier: 98
+UP -> State: (1,6, f:9, f,t,t,f) frontier: 125
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 143
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 182
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 211
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 256
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 281
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 343
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 366
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 430
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 460
+nodes Expanded: 3442
+time: 239.644 ms
 
 
 ****** test 4 ********
-Start State: (9,3, fuel:2)
+Start State: (8,7, fuel:1)
 No Solution
-nodes Expanded: 13
+ Level : 1
+nodes Expanded: 5
 time: 0 ms
 
 
 ****** test 5 ********
-Start State: (9,2, fuel:19)
-The goal has been reached
+Start State: (9,8, fuel:10)
+goal found
+Level: 23
 Path:
-DOWN -> State: (10,2, f:18, f,f,f,f) frontier: 1
-LEFT -> State: (10,3, f:17, f,f,f,f) frontier: 7
-LEFT -> State: (10,4, f:16, f,f,f,f) frontier: 9
-LEFT -> State: (10,5, f:15, f,f,f,f) frontier: 13
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 17
-LEFT -> State: (10,7, f:19, f,f,f,f) frontier: 24
-LEFT -> State: (10,8, f:18, t,f,t,f) frontier: 31
-UP -> State: (9,8, f:17, t,f,t,f) frontier: 41
-UP -> State: (8,8, f:16, t,f,t,f) frontier: 51
-UP -> State: (7,8, f:15, t,f,t,f) frontier: 71
-UP -> State: (6,8, f:14, t,f,t,f) frontier: 83
-UP -> State: (5,8, f:13, t,f,t,f) frontier: 108
-UP -> State: (4,8, f:12, t,f,t,f) frontier: 137
-LEFT -> State: (4,7, f:11, t,f,t,f) frontier: 173
-LEFT -> State: (4,6, f:10, t,f,t,t) frontier: 209
-UP -> State: (3,6, f:9, t,f,t,t) frontier: 245
-UP -> State: (2,6, f:8, t,f,t,t) frontier: 281
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 331
-DOWN -> State: (1,5, f:6, t,t,t,t) frontier: 368
-DOWN -> State: (1,4, f:5, t,t,t,t) frontier: 206
-DOWN -> State: (1,3, f:4, t,t,t,t) frontier: 199
-DOWN -> State: (1,2, f:3, t,t,t,t) frontier: 219
-DOWN -> State: (1,1, f:2, t,t,t,t) frontier: 224
-nodes Expanded: 3072
-time: 172.71 ms
+UP -> State: (8,8, f:9, f,f,f,f) frontier: 0
+UP -> State: (7,8, f:8, f,f,f,f) frontier: 3
+UP -> State: (6,8, f:20, f,f,f,f) frontier: 7
+DOWN -> State: (7,8, f:19, f,f,f,f) frontier: 12
+DOWN -> State: (8,8, f:18, f,f,f,f) frontier: 24
+LEFT -> State: (8,7, f:17, f,f,f,f) frontier: 41
+LEFT -> State: (8,6, f:16, f,f,t,f) frontier: 60
+UP -> State: (7,6, f:15, f,f,t,f) frontier: 77
+UP -> State: (6,6, f:14, f,f,t,f) frontier: 103
+UP -> State: (5,6, f:13, f,f,t,f) frontier: 134
+UP -> State: (4,6, f:12, f,f,t,f) frontier: 170
+UP -> State: (3,6, f:11, f,f,t,f) frontier: 105
+UP -> State: (2,6, f:10, f,t,t,f) frontier: 119
+UP -> State: (1,6, f:9, f,t,t,f) frontier: 141
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 157
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 194
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 223
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 272
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 304
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 375
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 413
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 496
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 542
+nodes Expanded: 3996
+time: 374.178 ms
 
 
 ****** test 6 ********
-Start State: (4,2, fuel:12)
-The goal has been reached
+Start State: (6,7, fuel:15)
+goal found
+Level: 21
 Path:
-DOWN -> State: (5,2, f:11, f,f,f,f) frontier: 1
-DOWN -> State: (6,2, f:10, f,f,f,f) frontier: 6
-DOWN -> State: (7,2, f:9, f,f,f,f) frontier: 11
-DOWN -> State: (8,2, f:8, f,f,f,f) frontier: 16
-DOWN -> State: (9,2, f:7, f,f,f,f) frontier: 21
-DOWN -> State: (10,2, f:6, f,f,f,f) frontier: 30
-LEFT -> State: (10,3, f:5, f,f,f,f) frontier: 45
-LEFT -> State: (10,4, f:4, f,f,f,f) frontier: 60
-LEFT -> State: (10,5, f:3, f,f,f,f) frontier: 81
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 103
-LEFT -> State: (10,7, f:19, f,f,f,f) frontier: 124
-LEFT -> State: (10,8, f:18, t,f,t,f) frontier: 144
-UP -> State: (9,8, f:17, t,f,t,f) frontier: 30
-UP -> State: (8,8, f:16, t,f,t,f) frontier: 27
-UP -> State: (7,8, f:15, t,f,t,f) frontier: 45
-UP -> State: (6,8, f:14, t,f,t,f) frontier: 66
-UP -> State: (5,8, f:13, t,f,t,f) frontier: 87
-UP -> State: (4,8, f:12, t,f,t,f) frontier: 114
-LEFT -> State: (4,7, f:11, t,f,t,f) frontier: 140
-LEFT -> State: (4,6, f:10, t,f,t,t) frontier: 167
-UP -> State: (3,6, f:9, t,f,t,t) frontier: 184
-UP -> State: (2,6, f:8, t,f,t,t) frontier: 200
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 209
-DOWN -> State: (1,5, f:6, t,t,t,t) frontier: 216
-DOWN -> State: (1,4, f:5, t,t,t,t) frontier: 229
-DOWN -> State: (1,3, f:4, t,t,t,t) frontier: 226
-DOWN -> State: (1,2, f:3, t,t,t,t) frontier: 233
-DOWN -> State: (1,1, f:2, t,t,t,t) frontier: 234
-nodes Expanded: 3078
-time: 128.883 ms
+RIGHT -> State: (6,8, f:20, f,f,f,f) frontier: 3
+DOWN -> State: (7,8, f:19, f,f,f,f) frontier: 9
+DOWN -> State: (8,8, f:18, f,f,f,f) frontier: 18
+LEFT -> State: (8,7, f:17, f,f,f,f) frontier: 42
+LEFT -> State: (8,6, f:16, f,f,t,f) frontier: 58
+UP -> State: (7,6, f:15, f,f,t,f) frontier: 84
+UP -> State: (6,6, f:14, f,f,t,f) frontier: 101
+UP -> State: (5,6, f:13, f,f,t,f) frontier: 138
+UP -> State: (4,6, f:12, f,f,t,f) frontier: 155
+UP -> State: (3,6, f:11, f,f,t,f) frontier: 192
+UP -> State: (2,6, f:10, f,t,t,f) frontier: 206
+UP -> State: (1,6, f:9, f,t,t,f) frontier: 254
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 274
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 349
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 390
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 177
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 195
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 239
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 248
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 278
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 286
+nodes Expanded: 3718
+time: 241.244 ms
 
 
 ****** test 7 ********
-Start State: (8,2, fuel:18)
-The goal has been reached
+Start State: (5,1, fuel:20)
+goal found
+Level: 28
 Path:
-DOWN -> State: (9,2, f:17, f,f,f,f) frontier: 1
-DOWN -> State: (10,2, f:16, f,f,f,f) frontier: 6
-LEFT -> State: (10,3, f:15, f,f,f,f) frontier: 12
-LEFT -> State: (10,4, f:14, f,f,f,f) frontier: 15
-LEFT -> State: (10,5, f:13, f,f,f,f) frontier: 20
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 25
-LEFT -> State: (10,7, f:19, f,f,f,f) frontier: 33
-LEFT -> State: (10,8, f:18, t,f,t,f) frontier: 40
-UP -> State: (9,8, f:17, t,f,t,f) frontier: 55
-UP -> State: (8,8, f:16, t,f,t,f) frontier: 67
-UP -> State: (7,8, f:15, t,f,t,f) frontier: 90
-UP -> State: (6,8, f:14, t,f,t,f) frontier: 109
-UP -> State: (5,8, f:13, t,f,t,f) frontier: 139
-UP -> State: (4,8, f:12, t,f,t,f) frontier: 169
-LEFT -> State: (4,7, f:11, t,f,t,f) frontier: 211
-LEFT -> State: (4,6, f:10, t,f,t,t) frontier: 245
-UP -> State: (3,6, f:9, t,f,t,t) frontier: 287
-UP -> State: (2,6, f:8, t,f,t,t) frontier: 327
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 168
-DOWN -> State: (1,5, f:6, t,t,t,t) frontier: 171
-DOWN -> State: (1,4, f:5, t,t,t,t) frontier: 208
-DOWN -> State: (1,3, f:4, t,t,t,t) frontier: 223
-DOWN -> State: (1,2, f:3, t,t,t,t) frontier: 239
-DOWN -> State: (1,1, f:2, t,t,t,t) frontier: 237
-nodes Expanded: 3122
-time: 141.551 ms
+UP -> State: (4,1, f:19, f,f,f,f) frontier: 0
+UP -> State: (3,1, f:18, t,f,f,f) frontier: 2
+DOWN -> State: (4,1, f:17, t,f,f,f) frontier: 6
+DOWN -> State: (5,1, f:16, t,f,f,f) frontier: 12
+DOWN -> State: (6,1, f:15, t,f,f,f) frontier: 17
+DOWN -> State: (7,1, f:14, t,f,f,f) frontier: 30
+DOWN -> State: (8,1, f:13, t,f,f,f) frontier: 42
+LEFT -> State: (8,2, f:12, t,f,f,f) frontier: 57
+LEFT -> State: (8,3, f:11, t,f,f,f) frontier: 73
+RIGHT -> State: (8,4, f:10, t,f,f,f) frontier: 107
+RIGHT -> State: (8,5, f:9, t,f,f,f) frontier: 142
+RIGHT -> State: (8,6, f:8, t,f,t,f) frontier: 191
+UP -> State: (7,6, f:7, t,f,t,f) frontier: 234
+UP -> State: (6,6, f:6, t,f,t,f) frontier: 299
+RIGHT -> State: (6,7, f:5, t,f,t,f) frontier: 361
+RIGHT -> State: (6,8, f:20, t,f,t,f) frontier: 446
+UP -> State: (5,8, f:19, t,f,t,f) frontier: 531
+UP -> State: (4,8, f:18, t,f,t,f) frontier: 651
+UP -> State: (3,8, f:17, t,f,t,f) frontier: 758
+UP -> State: (2,8, f:16, t,f,t,f) frontier: 898
+LEFT -> State: (2,7, f:15, t,f,t,f) frontier: 686
+LEFT -> State: (2,6, f:14, t,t,t,f) frontier: 475
+UP -> State: (1,6, f:13, t,t,t,f) frontier: 556
+DOWN -> State: (1,5, f:12, t,t,t,f) frontier: 644
+DOWN -> State: (1,4, f:11, t,t,t,f) frontier: 678
+DOWN -> State: (1,3, f:10, t,t,t,f) frontier: 693
+DOWN -> State: (1,2, f:9, t,t,t,t) frontier: 664
+DOWN -> State: (1,1, f:8, t,t,t,t) frontier: 628
+nodes Expanded: 9910
+time: 1494.9 ms
 
 
 ****** test 8 ********
-Start State: (4,6, fuel:3)
-No Solution
-nodes Expanded: 34
-time: 0 ms
+Start State: (2,6, fuel:8)
+goal found
+Level: 26
+Path:
+UP -> State: (1,6, f:7, f,f,f,f) frontier: 0
+UP -> State: (2,6, f:6, f,t,f,f) frontier: 3
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 8
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 18
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 26
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 41
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 53
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 80
+DOWN -> State: (7,8, f:19, f,t,f,f) frontier: 69
+DOWN -> State: (8,8, f:18, f,t,f,f) frontier: 20
+LEFT -> State: (8,7, f:17, f,t,f,f) frontier: 34
+LEFT -> State: (8,6, f:16, f,t,t,f) frontier: 53
+UP -> State: (7,6, f:15, f,t,t,f) frontier: 69
+UP -> State: (6,6, f:14, f,t,t,f) frontier: 93
+UP -> State: (5,6, f:13, f,t,t,f) frontier: 115
+UP -> State: (4,6, f:12, f,t,t,f) frontier: 142
+LEFT -> State: (4,5, f:11, f,t,t,f) frontier: 164
+DOWN -> State: (4,4, f:10, f,t,t,f) frontier: 200
+LEFT -> State: (4,3, f:9, f,t,t,f) frontier: 222
+DOWN -> State: (4,2, f:8, f,t,t,f) frontier: 259
+UP -> State: (3,2, f:7, f,t,t,f) frontier: 265
+LEFT -> State: (3,1, f:6, t,t,t,f) frontier: 308
+UP -> State: (2,1, f:5, t,t,t,f) frontier: 305
+UP -> State: (1,1, f:4, t,t,t,f) frontier: 337
+DOWN -> State: (1,2, f:3, t,t,t,t) frontier: 334
+DOWN -> State: (1,1, f:2, t,t,t,t) frontier: 372
+nodes Expanded: 3617
+time: 258.043 ms
 
 
 ****** test 9 ********
-Start State: (5,2, fuel:15)
-The goal has been reached
+Start State: (5,9, fuel:2)
+goal found
+Level: 22
 Path:
-DOWN -> State: (6,2, f:14, f,f,f,f) frontier: 1
-DOWN -> State: (7,2, f:13, f,f,f,f) frontier: 6
-DOWN -> State: (8,2, f:12, f,f,f,f) frontier: 11
-DOWN -> State: (9,2, f:11, f,f,f,f) frontier: 17
-DOWN -> State: (10,2, f:10, f,f,f,f) frontier: 23
-LEFT -> State: (10,3, f:9, f,f,f,f) frontier: 33
-LEFT -> State: (10,4, f:8, f,f,f,f) frontier: 42
-LEFT -> State: (10,5, f:7, f,f,f,f) frontier: 55
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 73
-LEFT -> State: (10,7, f:19, f,f,f,f) frontier: 92
-LEFT -> State: (10,8, f:18, t,f,t,f) frontier: 110
-UP -> State: (9,8, f:17, t,f,t,f) frontier: 134
-UP -> State: (8,8, f:16, t,f,t,f) frontier: 156
-UP -> State: (7,8, f:15, t,f,t,f) frontier: 196
-UP -> State: (6,8, f:14, t,f,t,f) frontier: 221
-UP -> State: (5,8, f:13, t,f,t,f) frontier: 84
-UP -> State: (4,8, f:12, t,f,t,f) frontier: 94
-LEFT -> State: (4,7, f:11, t,f,t,f) frontier: 124
-LEFT -> State: (4,6, f:10, t,f,t,t) frontier: 143
-UP -> State: (3,6, f:9, t,f,t,t) frontier: 165
-UP -> State: (2,6, f:8, t,f,t,t) frontier: 177
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 189
-DOWN -> State: (1,5, f:6, t,t,t,t) frontier: 188
-DOWN -> State: (1,4, f:5, t,t,t,t) frontier: 203
-DOWN -> State: (1,3, f:4, t,t,t,t) frontier: 200
-DOWN -> State: (1,2, f:3, t,t,t,t) frontier: 202
-DOWN -> State: (1,1, f:2, t,t,t,t) frontier: 202
-nodes Expanded: 3169
-time: 127.219 ms
+DOWN -> State: (6,9, f:1, f,f,f,f) frontier: 1
+LEFT -> State: (6,8, f:20, f,f,f,f) frontier: 7
+DOWN -> State: (7,8, f:19, f,f,f,f) frontier: 3
+DOWN -> State: (8,8, f:18, f,f,f,f) frontier: 5
+LEFT -> State: (8,7, f:17, f,f,f,f) frontier: 14
+LEFT -> State: (8,6, f:16, f,f,t,f) frontier: 20
+UP -> State: (7,6, f:15, f,f,t,f) frontier: 28
+UP -> State: (6,6, f:14, f,f,t,f) frontier: 36
+UP -> State: (5,6, f:13, f,f,t,f) frontier: 55
+UP -> State: (4,6, f:12, f,f,t,f) frontier: 66
+UP -> State: (3,6, f:11, f,f,t,f) frontier: 87
+UP -> State: (2,6, f:10, f,t,t,f) frontier: 98
+UP -> State: (1,6, f:9, f,t,t,f) frontier: 125
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 144
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 185
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 217
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 267
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 297
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 369
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 403
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 477
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 515
+nodes Expanded: 3442
+time: 138.464 ms
 
 
 ****** test 10 ********
-Start State: (1,8, fuel:10)
-No Solution
-nodes Expanded: 505
-time: 9.652 ms
+Start State: (2,5, fuel:19)
+goal found
+Level: 25
+Path:
+RIGHT -> State: (2,6, f:18, f,t,f,f) frontier: 3
+DOWN -> State: (3,6, f:17, f,t,f,f) frontier: 8
+DOWN -> State: (4,6, f:16, f,t,f,f) frontier: 14
+DOWN -> State: (5,6, f:15, f,t,f,f) frontier: 27
+DOWN -> State: (6,6, f:14, f,t,f,f) frontier: 39
+DOWN -> State: (7,6, f:13, f,t,f,f) frontier: 57
+DOWN -> State: (8,6, f:12, f,t,t,f) frontier: 71
+UP -> State: (7,6, f:11, f,t,t,f) frontier: 105
+UP -> State: (6,6, f:10, f,t,t,f) frontier: 137
+RIGHT -> State: (6,7, f:9, f,t,t,f) frontier: 202
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 241
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 315
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 358
+LEFT -> State: (4,7, f:17, f,t,t,f) frontier: 435
+LEFT -> State: (4,6, f:16, f,t,t,f) frontier: 469
+LEFT -> State: (4,5, f:15, f,t,t,f) frontier: 561
+DOWN -> State: (4,4, f:14, f,t,t,f) frontier: 580
+LEFT -> State: (4,3, f:13, f,t,t,f) frontier: 682
+DOWN -> State: (4,2, f:12, f,t,t,f) frontier: 702
+UP -> State: (3,2, f:11, f,t,t,f) frontier: 227
+LEFT -> State: (3,1, f:10, t,t,t,f) frontier: 253
+UP -> State: (2,1, f:9, t,t,t,f) frontier: 343
+UP -> State: (1,1, f:8, t,t,t,f) frontier: 389
+DOWN -> State: (1,2, f:7, t,t,t,t) frontier: 490
+DOWN -> State: (1,1, f:6, t,t,t,t) frontier: 526
+nodes Expanded: 7260
+time: 1058.09 ms
 
 **********************************************DFS************************************************
 
 ****** test 1 ********
-Start State: (8,10, fuel:6)
-Result Reached (Goal Found)
+Start State: (3,9, fuel:20)
+Goal Found
+depth: 80
 Path:
-DOWN -> State: (9,10, f:5, f,f,f,f) frontier: 1
-DOWN -> State: (10,10, f:4, f,f,f,f) frontier: 2
-DOWN -> State: (10,9, f:3, f,f,f,f) frontier: 2
-DOWN -> State: (10,8, f:2, t,f,t,f) frontier: 2
-DOWN -> State: (10,7, f:1, t,f,t,f) frontier: 3
-DOWN -> State: (10,6, f:20, t,f,t,f) frontier: 3
-UP -> State: (9,6, f:19, t,f,t,f) frontier: 5
-UP -> State: (8,6, f:18, t,f,t,f) frontier: 7
-UP -> State: (7,6, f:17, t,f,t,f) frontier: 10
-UP -> State: (6,6, f:16, t,f,t,f) frontier: 13
-UP -> State: (5,6, f:15, t,f,t,f) frontier: 16
-UP -> State: (4,6, f:14, t,f,t,t) frontier: 19
-UP -> State: (3,6, f:13, t,f,t,t) frontier: 22
-UP -> State: (2,6, f:12, t,f,t,t) frontier: 25
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 28
-UP -> State: (2,6, f:10, t,t,t,t) frontier: 30
-UP -> State: (1,6, f:9, t,t,t,t) frontier: 33
-UP -> State: (2,6, f:8, t,t,t,t) frontier: 35
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 38
-UP -> State: (2,6, f:6, t,t,t,t) frontier: 40
-UP -> State: (1,6, f:5, t,t,t,t) frontier: 43
-DOWN -> State: (1,5, f:4, t,t,t,t) frontier: 44
-DOWN -> State: (1,4, f:3, t,t,t,t) frontier: 44
-DOWN -> State: (1,3, f:2, t,t,t,t) frontier: 44
-DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 44
-DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 44
-Nodes Expanded: 129
-time: 0 ms
+UP -> State: (2,9, f:19, f,f,f,f) frontier: 3
+UP -> State: (1,9, f:18, f,f,f,f) frontier: 6
+UP -> State: (2,9, f:17, f,f,f,f) frontier: 8
+UP -> State: (1,9, f:16, f,f,f,f) frontier: 11
+UP -> State: (2,9, f:15, f,f,f,f) frontier: 13
+UP -> State: (1,9, f:14, f,f,f,f) frontier: 16
+UP -> State: (2,9, f:13, f,f,f,f) frontier: 18
+UP -> State: (1,9, f:12, f,f,f,f) frontier: 21
+UP -> State: (2,9, f:11, f,f,f,f) frontier: 23
+UP -> State: (1,9, f:10, f,f,f,f) frontier: 26
+UP -> State: (2,9, f:9, f,f,f,f) frontier: 28
+UP -> State: (1,9, f:8, f,f,f,f) frontier: 31
+UP -> State: (2,9, f:7, f,f,f,f) frontier: 33
+UP -> State: (1,9, f:6, f,f,f,f) frontier: 36
+UP -> State: (2,9, f:5, f,f,f,f) frontier: 38
+DOWN -> State: (3,9, f:4, f,f,f,f) frontier: 40
+DOWN -> State: (4,9, f:3, f,f,f,f) frontier: 42
+DOWN -> State: (5,9, f:2, f,f,f,f) frontier: 44
+DOWN -> State: (6,9, f:1, f,f,f,f) frontier: 46
+LEFT -> State: (6,8, f:20, f,f,f,f) frontier: 47
+UP -> State: (5,8, f:19, f,f,f,f) frontier: 50
+UP -> State: (4,8, f:18, f,f,f,f) frontier: 52
+UP -> State: (3,8, f:17, f,f,f,f) frontier: 55
+DOWN -> State: (4,8, f:16, f,f,f,f) frontier: 56
+UP -> State: (3,8, f:15, f,f,f,f) frontier: 59
+DOWN -> State: (4,8, f:14, f,f,f,f) frontier: 60
+UP -> State: (3,8, f:13, f,f,f,f) frontier: 63
+DOWN -> State: (4,8, f:12, f,f,f,f) frontier: 64
+UP -> State: (3,8, f:11, f,f,f,f) frontier: 67
+DOWN -> State: (4,8, f:10, f,f,f,f) frontier: 68
+UP -> State: (3,8, f:9, f,f,f,f) frontier: 71
+LEFT -> State: (3,7, f:8, f,f,f,f) frontier: 71
+UP -> State: (2,7, f:7, f,f,f,f) frontier: 72
+LEFT -> State: (2,6, f:6, f,t,f,f) frontier: 72
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 74
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 76
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 78
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 79
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 79
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 79
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 82
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 84
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 87
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 90
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 93
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 95
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 98
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 100
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 102
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 104
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 106
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 107
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 108
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 109
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 111
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 112
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 115
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 117
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 117
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 117
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 120
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 122
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 125
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 128
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 131
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 133
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 136
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 138
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 141
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 142
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 142
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 142
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 142
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 142
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 142
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 144
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 146
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 146
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 148
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 149
+Nodes Expanded: 795
+time: 6.834 ms
 
 
 ****** test 2 ********
-Start State: (2,2, fuel:10)
-No Solution
-Nodes Expanded: 333
-time: 2.001 ms
+Start State: (10,6, fuel:13)
+Goal Found
+depth: 52
+Path:
+UP -> State: (9,6, f:12, f,f,f,f) frontier: 2
+UP -> State: (8,6, f:11, f,f,t,f) frontier: 5
+UP -> State: (7,6, f:10, f,f,t,f) frontier: 8
+UP -> State: (6,6, f:9, f,f,t,f) frontier: 11
+UP -> State: (5,6, f:8, f,f,t,f) frontier: 14
+UP -> State: (4,6, f:7, f,f,t,f) frontier: 16
+UP -> State: (3,6, f:6, f,f,t,f) frontier: 19
+DOWN -> State: (4,6, f:5, f,f,t,f) frontier: 21
+DOWN -> State: (5,6, f:4, f,f,t,f) frontier: 23
+DOWN -> State: (6,6, f:3, f,f,t,f) frontier: 24
+RIGHT -> State: (6,7, f:2, f,f,t,f) frontier: 24
+RIGHT -> State: (6,8, f:20, f,f,t,f) frontier: 24
+UP -> State: (5,8, f:19, f,f,t,f) frontier: 27
+UP -> State: (4,8, f:18, f,f,t,f) frontier: 29
+UP -> State: (3,8, f:17, f,f,t,f) frontier: 32
+UP -> State: (2,8, f:16, f,f,t,f) frontier: 35
+UP -> State: (1,8, f:15, f,f,t,f) frontier: 38
+UP -> State: (2,8, f:14, f,f,t,f) frontier: 40
+UP -> State: (1,8, f:13, f,f,t,f) frontier: 43
+UP -> State: (2,8, f:12, f,f,t,f) frontier: 45
+UP -> State: (1,8, f:11, f,f,t,f) frontier: 48
+UP -> State: (2,8, f:10, f,f,t,f) frontier: 50
+UP -> State: (1,8, f:9, f,f,t,f) frontier: 53
+UP -> State: (2,8, f:8, f,f,t,f) frontier: 55
+LEFT -> State: (2,7, f:7, f,f,t,f) frontier: 56
+LEFT -> State: (2,6, f:6, f,t,t,f) frontier: 56
+DOWN -> State: (3,6, f:5, f,t,t,f) frontier: 58
+DOWN -> State: (4,6, f:4, f,t,t,f) frontier: 60
+DOWN -> State: (5,6, f:3, f,t,t,f) frontier: 62
+DOWN -> State: (6,6, f:2, f,t,t,f) frontier: 63
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 63
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 63
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 66
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 68
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 71
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 74
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 77
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 79
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 82
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 84
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 87
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 88
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 88
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 88
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 88
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 88
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 88
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 90
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 92
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 92
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 94
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 95
+Nodes Expanded: 555
+time: 8.019 ms
 
 
 ****** test 3 ********
-Start State: (8,5, fuel:2)
-No Solution
-Nodes Expanded: 14
-time: 0 ms
+Start State: (5,1, fuel:8)
+Goal Found
+depth: 68
+Path:
+DOWN -> State: (6,1, f:7, f,f,f,f) frontier: 1
+LEFT -> State: (6,2, f:6, f,f,f,f) frontier: 1
+LEFT -> State: (6,3, f:5, f,f,f,f) frontier: 1
+RIGHT -> State: (6,4, f:4, f,f,f,f) frontier: 1
+RIGHT -> State: (6,5, f:3, f,f,f,f) frontier: 1
+LEFT -> State: (6,6, f:2, f,f,f,f) frontier: 1
+RIGHT -> State: (6,7, f:1, f,f,f,f) frontier: 1
+RIGHT -> State: (6,8, f:20, f,f,f,f) frontier: 1
+UP -> State: (5,8, f:19, f,f,f,f) frontier: 4
+UP -> State: (4,8, f:18, f,f,f,f) frontier: 6
+UP -> State: (3,8, f:17, f,f,f,f) frontier: 9
+UP -> State: (2,8, f:16, f,f,f,f) frontier: 12
+UP -> State: (1,8, f:15, f,f,f,f) frontier: 15
+UP -> State: (2,8, f:14, f,f,f,f) frontier: 17
+UP -> State: (1,8, f:13, f,f,f,f) frontier: 20
+UP -> State: (2,8, f:12, f,f,f,f) frontier: 22
+UP -> State: (1,8, f:11, f,f,f,f) frontier: 25
+UP -> State: (2,8, f:10, f,f,f,f) frontier: 27
+UP -> State: (1,8, f:9, f,f,f,f) frontier: 30
+UP -> State: (2,8, f:8, f,f,f,f) frontier: 32
+LEFT -> State: (2,7, f:7, f,f,f,f) frontier: 33
+LEFT -> State: (2,6, f:6, f,t,f,f) frontier: 33
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 35
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 37
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 39
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 40
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 40
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 40
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 43
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 45
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 48
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 51
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 54
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 56
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 59
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 61
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 63
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 65
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 67
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 68
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 69
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 70
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 72
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 73
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 76
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 78
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 78
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 78
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 81
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 83
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 86
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 89
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 92
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 94
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 97
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 99
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 102
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 103
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 103
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 103
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 103
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 103
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 103
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 105
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 107
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 107
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 109
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 110
+Nodes Expanded: 896
+time: 18.094 ms
 
 
 ****** test 4 ********
-Start State: (9,3, fuel:2)
+Start State: (8,7, fuel:1)
 No Solution
-Nodes Expanded: 13
+depth 1
+Nodes Expanded: 5
 time: 0 ms
 
 
 ****** test 5 ********
-Start State: (9,2, fuel:19)
-Result Reached (Goal Found)
+Start State: (9,8, fuel:10)
+Goal Found
+depth: 63
 Path:
-UP -> State: (8,2, f:18, f,f,f,f) frontier: 3
-UP -> State: (7,2, f:17, f,f,f,f) frontier: 6
-UP -> State: (6,2, f:16, f,f,f,f) frontier: 9
-UP -> State: (5,2, f:15, f,f,f,f) frontier: 12
-UP -> State: (4,2, f:14, f,f,f,f) frontier: 15
-UP -> State: (3,2, f:13, f,f,f,f) frontier: 18
-UP -> State: (2,2, f:12, f,f,f,f) frontier: 21
-DOWN -> State: (3,2, f:11, f,f,f,f) frontier: 23
-DOWN -> State: (4,2, f:10, f,f,f,f) frontier: 25
-DOWN -> State: (5,2, f:9, f,f,f,f) frontier: 27
-DOWN -> State: (6,2, f:8, f,f,f,f) frontier: 29
-DOWN -> State: (7,2, f:7, f,f,f,f) frontier: 31
-DOWN -> State: (8,2, f:6, f,f,f,f) frontier: 33
-DOWN -> State: (9,2, f:5, f,f,f,f) frontier: 35
-DOWN -> State: (10,2, f:4, f,f,f,f) frontier: 37
-LEFT -> State: (10,3, f:3, f,f,f,f) frontier: 37
-LEFT -> State: (10,4, f:2, f,f,f,f) frontier: 37
-LEFT -> State: (10,5, f:1, f,f,f,f) frontier: 37
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 37
-UP -> State: (9,6, f:19, f,f,f,f) frontier: 39
-UP -> State: (8,6, f:18, f,f,f,f) frontier: 41
-UP -> State: (7,6, f:17, f,f,f,f) frontier: 44
-UP -> State: (6,6, f:16, f,f,f,f) frontier: 47
-UP -> State: (5,6, f:15, f,f,f,f) frontier: 50
-UP -> State: (4,6, f:14, f,f,f,t) frontier: 53
-UP -> State: (3,6, f:13, f,f,f,t) frontier: 56
-UP -> State: (2,6, f:12, f,f,f,t) frontier: 59
-UP -> State: (1,6, f:11, f,t,f,t) frontier: 62
-UP -> State: (2,6, f:10, f,t,f,t) frontier: 64
-UP -> State: (1,6, f:9, f,t,f,t) frontier: 67
-UP -> State: (2,6, f:8, f,t,f,t) frontier: 69
-DOWN -> State: (3,6, f:7, f,t,f,t) frontier: 71
-DOWN -> State: (4,6, f:6, f,t,f,t) frontier: 73
-DOWN -> State: (5,6, f:5, f,t,f,t) frontier: 75
-DOWN -> State: (6,6, f:4, f,t,f,t) frontier: 77
-DOWN -> State: (7,6, f:3, f,t,f,t) frontier: 79
-DOWN -> State: (8,6, f:2, f,t,f,t) frontier: 81
-DOWN -> State: (9,6, f:1, f,t,f,t) frontier: 83
-DOWN -> State: (10,6, f:20, f,t,f,t) frontier: 85
-UP -> State: (9,6, f:19, f,t,f,t) frontier: 87
-UP -> State: (8,6, f:18, f,t,f,t) frontier: 89
-UP -> State: (7,6, f:17, f,t,f,t) frontier: 92
-UP -> State: (6,6, f:16, f,t,f,t) frontier: 95
-UP -> State: (5,6, f:15, f,t,f,t) frontier: 98
-UP -> State: (4,6, f:14, f,t,f,t) frontier: 101
-UP -> State: (3,6, f:13, f,t,f,t) frontier: 104
-UP -> State: (2,6, f:12, f,t,f,t) frontier: 107
-DOWN -> State: (3,6, f:11, f,t,f,t) frontier: 109
-DOWN -> State: (4,6, f:10, f,t,f,t) frontier: 111
-DOWN -> State: (5,6, f:9, f,t,f,t) frontier: 113
-DOWN -> State: (6,6, f:8, f,t,f,t) frontier: 115
-DOWN -> State: (7,6, f:7, f,t,f,t) frontier: 117
-DOWN -> State: (8,6, f:6, f,t,f,t) frontier: 119
-DOWN -> State: (9,6, f:5, f,t,f,t) frontier: 121
-RIGHT -> State: (9,7, f:4, f,t,f,t) frontier: 121
-DOWN -> State: (10,7, f:3, f,t,f,t) frontier: 122
-LEFT -> State: (10,8, f:2, t,t,t,t) frontier: 122
-DOWN -> State: (10,7, f:1, t,t,t,t) frontier: 123
-DOWN -> State: (10,6, f:20, t,t,t,t) frontier: 123
-UP -> State: (9,6, f:19, t,t,t,t) frontier: 125
-UP -> State: (8,6, f:18, t,t,t,t) frontier: 127
-UP -> State: (7,6, f:17, t,t,t,t) frontier: 130
-UP -> State: (6,6, f:16, t,t,t,t) frontier: 133
-UP -> State: (5,6, f:15, t,t,t,t) frontier: 136
-UP -> State: (4,6, f:14, t,t,t,t) frontier: 139
-UP -> State: (3,6, f:13, t,t,t,t) frontier: 142
-UP -> State: (2,6, f:12, t,t,t,t) frontier: 145
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 148
-UP -> State: (2,6, f:10, t,t,t,t) frontier: 150
-UP -> State: (1,6, f:9, t,t,t,t) frontier: 153
-UP -> State: (2,6, f:8, t,t,t,t) frontier: 155
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 158
-UP -> State: (2,6, f:6, t,t,t,t) frontier: 160
-UP -> State: (1,6, f:5, t,t,t,t) frontier: 163
-DOWN -> State: (1,5, f:4, t,t,t,t) frontier: 164
-DOWN -> State: (1,4, f:3, t,t,t,t) frontier: 164
-DOWN -> State: (1,3, f:2, t,t,t,t) frontier: 164
-DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 164
-DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 164
-Nodes Expanded: 715
-time: 7.248 ms
+UP -> State: (8,8, f:9, f,f,f,f) frontier: 3
+UP -> State: (7,8, f:8, f,f,f,f) frontier: 6
+UP -> State: (6,8, f:20, f,f,f,f) frontier: 9
+UP -> State: (5,8, f:19, f,f,f,f) frontier: 12
+UP -> State: (4,8, f:18, f,f,f,f) frontier: 14
+UP -> State: (3,8, f:17, f,f,f,f) frontier: 17
+UP -> State: (2,8, f:16, f,f,f,f) frontier: 20
+UP -> State: (1,8, f:15, f,f,f,f) frontier: 23
+UP -> State: (2,8, f:14, f,f,f,f) frontier: 25
+UP -> State: (1,8, f:13, f,f,f,f) frontier: 28
+UP -> State: (2,8, f:12, f,f,f,f) frontier: 30
+UP -> State: (1,8, f:11, f,f,f,f) frontier: 33
+UP -> State: (2,8, f:10, f,f,f,f) frontier: 35
+UP -> State: (1,8, f:9, f,f,f,f) frontier: 38
+UP -> State: (2,8, f:8, f,f,f,f) frontier: 40
+LEFT -> State: (2,7, f:7, f,f,f,f) frontier: 41
+LEFT -> State: (2,6, f:6, f,t,f,f) frontier: 41
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 43
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 45
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 47
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 48
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 48
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 48
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 51
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 53
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 56
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 59
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 62
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 64
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 67
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 69
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 71
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 73
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 75
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 76
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 77
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 78
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 80
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 81
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 84
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 86
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 86
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 86
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 89
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 91
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 94
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 97
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 100
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 102
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 105
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 107
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 110
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 111
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 111
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 111
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 111
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 111
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 111
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 113
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 115
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 115
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 117
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 118
+Nodes Expanded: 731
+time: 4.555 ms
 
 
 ****** test 6 ********
-Start State: (4,2, fuel:12)
-Result Reached (Goal Found)
+Start State: (6,7, fuel:15)
+Goal Found
+depth: 55
 Path:
-UP -> State: (3,2, f:11, f,f,f,f) frontier: 3
-DOWN -> State: (4,2, f:10, f,f,f,f) frontier: 5
-DOWN -> State: (5,2, f:9, f,f,f,f) frontier: 7
-DOWN -> State: (6,2, f:8, f,f,f,f) frontier: 9
-DOWN -> State: (7,2, f:7, f,f,f,f) frontier: 11
-DOWN -> State: (8,2, f:6, f,f,f,f) frontier: 13
-DOWN -> State: (9,2, f:5, f,f,f,f) frontier: 15
-DOWN -> State: (10,2, f:4, f,f,f,f) frontier: 17
-LEFT -> State: (10,3, f:3, f,f,f,f) frontier: 17
-LEFT -> State: (10,4, f:2, f,f,f,f) frontier: 17
-LEFT -> State: (10,5, f:1, f,f,f,f) frontier: 17
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 17
-UP -> State: (9,6, f:19, f,f,f,f) frontier: 19
-UP -> State: (8,6, f:18, f,f,f,f) frontier: 21
-UP -> State: (7,6, f:17, f,f,f,f) frontier: 24
-UP -> State: (6,6, f:16, f,f,f,f) frontier: 27
-UP -> State: (5,6, f:15, f,f,f,f) frontier: 30
-UP -> State: (4,6, f:14, f,f,f,t) frontier: 33
-UP -> State: (3,6, f:13, f,f,f,t) frontier: 36
-UP -> State: (2,6, f:12, f,f,f,t) frontier: 39
-UP -> State: (1,6, f:11, f,t,f,t) frontier: 42
-UP -> State: (2,6, f:10, f,t,f,t) frontier: 44
-UP -> State: (1,6, f:9, f,t,f,t) frontier: 47
-UP -> State: (2,6, f:8, f,t,f,t) frontier: 49
-DOWN -> State: (3,6, f:7, f,t,f,t) frontier: 51
-DOWN -> State: (4,6, f:6, f,t,f,t) frontier: 53
-DOWN -> State: (5,6, f:5, f,t,f,t) frontier: 55
-DOWN -> State: (6,6, f:4, f,t,f,t) frontier: 57
-DOWN -> State: (7,6, f:3, f,t,f,t) frontier: 59
-DOWN -> State: (8,6, f:2, f,t,f,t) frontier: 61
-DOWN -> State: (9,6, f:1, f,t,f,t) frontier: 63
-DOWN -> State: (10,6, f:20, f,t,f,t) frontier: 65
-UP -> State: (9,6, f:19, f,t,f,t) frontier: 67
-UP -> State: (8,6, f:18, f,t,f,t) frontier: 69
-UP -> State: (7,6, f:17, f,t,f,t) frontier: 72
-UP -> State: (6,6, f:16, f,t,f,t) frontier: 75
-UP -> State: (5,6, f:15, f,t,f,t) frontier: 78
-UP -> State: (4,6, f:14, f,t,f,t) frontier: 81
-UP -> State: (3,6, f:13, f,t,f,t) frontier: 84
-UP -> State: (2,6, f:12, f,t,f,t) frontier: 87
-DOWN -> State: (3,6, f:11, f,t,f,t) frontier: 89
-DOWN -> State: (4,6, f:10, f,t,f,t) frontier: 91
-DOWN -> State: (5,6, f:9, f,t,f,t) frontier: 93
-DOWN -> State: (6,6, f:8, f,t,f,t) frontier: 95
-DOWN -> State: (7,6, f:7, f,t,f,t) frontier: 97
-DOWN -> State: (8,6, f:6, f,t,f,t) frontier: 99
-DOWN -> State: (9,6, f:5, f,t,f,t) frontier: 101
-RIGHT -> State: (9,7, f:4, f,t,f,t) frontier: 101
-DOWN -> State: (10,7, f:3, f,t,f,t) frontier: 102
-LEFT -> State: (10,8, f:2, t,t,t,t) frontier: 102
-DOWN -> State: (10,7, f:1, t,t,t,t) frontier: 103
-DOWN -> State: (10,6, f:20, t,t,t,t) frontier: 103
-UP -> State: (9,6, f:19, t,t,t,t) frontier: 105
-UP -> State: (8,6, f:18, t,t,t,t) frontier: 107
-UP -> State: (7,6, f:17, t,t,t,t) frontier: 110
-UP -> State: (6,6, f:16, t,t,t,t) frontier: 113
-UP -> State: (5,6, f:15, t,t,t,t) frontier: 116
-UP -> State: (4,6, f:14, t,t,t,t) frontier: 119
-UP -> State: (3,6, f:13, t,t,t,t) frontier: 122
-UP -> State: (2,6, f:12, t,t,t,t) frontier: 125
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 128
-UP -> State: (2,6, f:10, t,t,t,t) frontier: 130
-UP -> State: (1,6, f:9, t,t,t,t) frontier: 133
-UP -> State: (2,6, f:8, t,t,t,t) frontier: 135
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 138
-UP -> State: (2,6, f:6, t,t,t,t) frontier: 140
-UP -> State: (1,6, f:5, t,t,t,t) frontier: 143
-DOWN -> State: (1,5, f:4, t,t,t,t) frontier: 144
-DOWN -> State: (1,4, f:3, t,t,t,t) frontier: 144
-DOWN -> State: (1,3, f:2, t,t,t,t) frontier: 144
-DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 144
-DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 144
-Nodes Expanded: 651
-time: 7.63 ms
+UP -> State: (5,7, f:14, f,f,f,f) frontier: 3
+UP -> State: (4,7, f:13, f,f,f,f) frontier: 6
+UP -> State: (3,7, f:12, f,f,f,f) frontier: 9
+UP -> State: (2,7, f:11, f,f,f,f) frontier: 12
+UP -> State: (1,7, f:10, f,f,f,f) frontier: 15
+UP -> State: (2,7, f:9, f,f,f,f) frontier: 17
+UP -> State: (1,7, f:8, f,f,f,f) frontier: 20
+UP -> State: (2,7, f:7, f,f,f,f) frontier: 22
+LEFT -> State: (2,6, f:6, f,t,f,f) frontier: 23
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 25
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 27
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 29
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 30
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 30
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 30
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 33
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 35
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 38
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 41
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 44
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 46
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 49
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 51
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 53
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 55
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 57
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 58
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 59
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 60
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 62
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 63
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 66
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 68
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 68
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 68
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 71
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 73
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 76
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 79
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 82
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 84
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 87
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 89
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 92
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 93
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 93
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 93
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 93
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 93
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 93
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 95
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 97
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 97
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 99
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 100
+Nodes Expanded: 700
+time: 19.032 ms
 
 
 ****** test 7 ********
-Start State: (8,2, fuel:18)
-Result Reached (Goal Found)
+Start State: (5,1, fuel:20)
+Goal Found
+depth: 80
 Path:
-UP -> State: (7,2, f:17, f,f,f,f) frontier: 3
-UP -> State: (6,2, f:16, f,f,f,f) frontier: 6
-UP -> State: (5,2, f:15, f,f,f,f) frontier: 9
-UP -> State: (4,2, f:14, f,f,f,f) frontier: 12
-UP -> State: (3,2, f:13, f,f,f,f) frontier: 15
-UP -> State: (2,2, f:12, f,f,f,f) frontier: 18
-DOWN -> State: (3,2, f:11, f,f,f,f) frontier: 20
-DOWN -> State: (4,2, f:10, f,f,f,f) frontier: 22
-DOWN -> State: (5,2, f:9, f,f,f,f) frontier: 24
-DOWN -> State: (6,2, f:8, f,f,f,f) frontier: 26
-DOWN -> State: (7,2, f:7, f,f,f,f) frontier: 28
-DOWN -> State: (8,2, f:6, f,f,f,f) frontier: 30
-DOWN -> State: (9,2, f:5, f,f,f,f) frontier: 32
-DOWN -> State: (10,2, f:4, f,f,f,f) frontier: 34
-LEFT -> State: (10,3, f:3, f,f,f,f) frontier: 34
-LEFT -> State: (10,4, f:2, f,f,f,f) frontier: 34
-LEFT -> State: (10,5, f:1, f,f,f,f) frontier: 34
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 34
-UP -> State: (9,6, f:19, f,f,f,f) frontier: 36
-UP -> State: (8,6, f:18, f,f,f,f) frontier: 38
-UP -> State: (7,6, f:17, f,f,f,f) frontier: 41
-UP -> State: (6,6, f:16, f,f,f,f) frontier: 44
-UP -> State: (5,6, f:15, f,f,f,f) frontier: 47
-UP -> State: (4,6, f:14, f,f,f,t) frontier: 50
-UP -> State: (3,6, f:13, f,f,f,t) frontier: 53
-UP -> State: (2,6, f:12, f,f,f,t) frontier: 56
-UP -> State: (1,6, f:11, f,t,f,t) frontier: 59
-UP -> State: (2,6, f:10, f,t,f,t) frontier: 61
-UP -> State: (1,6, f:9, f,t,f,t) frontier: 64
-UP -> State: (2,6, f:8, f,t,f,t) frontier: 66
-DOWN -> State: (3,6, f:7, f,t,f,t) frontier: 68
-DOWN -> State: (4,6, f:6, f,t,f,t) frontier: 70
-DOWN -> State: (5,6, f:5, f,t,f,t) frontier: 72
-DOWN -> State: (6,6, f:4, f,t,f,t) frontier: 74
-DOWN -> State: (7,6, f:3, f,t,f,t) frontier: 76
-DOWN -> State: (8,6, f:2, f,t,f,t) frontier: 78
-DOWN -> State: (9,6, f:1, f,t,f,t) frontier: 80
-DOWN -> State: (10,6, f:20, f,t,f,t) frontier: 82
-UP -> State: (9,6, f:19, f,t,f,t) frontier: 84
-UP -> State: (8,6, f:18, f,t,f,t) frontier: 86
-UP -> State: (7,6, f:17, f,t,f,t) frontier: 89
-UP -> State: (6,6, f:16, f,t,f,t) frontier: 92
-UP -> State: (5,6, f:15, f,t,f,t) frontier: 95
-UP -> State: (4,6, f:14, f,t,f,t) frontier: 98
-UP -> State: (3,6, f:13, f,t,f,t) frontier: 101
-UP -> State: (2,6, f:12, f,t,f,t) frontier: 104
-DOWN -> State: (3,6, f:11, f,t,f,t) frontier: 106
-DOWN -> State: (4,6, f:10, f,t,f,t) frontier: 108
-DOWN -> State: (5,6, f:9, f,t,f,t) frontier: 110
-DOWN -> State: (6,6, f:8, f,t,f,t) frontier: 112
-DOWN -> State: (7,6, f:7, f,t,f,t) frontier: 114
-DOWN -> State: (8,6, f:6, f,t,f,t) frontier: 116
-DOWN -> State: (9,6, f:5, f,t,f,t) frontier: 118
-RIGHT -> State: (9,7, f:4, f,t,f,t) frontier: 118
-DOWN -> State: (10,7, f:3, f,t,f,t) frontier: 119
-LEFT -> State: (10,8, f:2, t,t,t,t) frontier: 119
-DOWN -> State: (10,7, f:1, t,t,t,t) frontier: 120
-DOWN -> State: (10,6, f:20, t,t,t,t) frontier: 120
-UP -> State: (9,6, f:19, t,t,t,t) frontier: 122
-UP -> State: (8,6, f:18, t,t,t,t) frontier: 124
-UP -> State: (7,6, f:17, t,t,t,t) frontier: 127
-UP -> State: (6,6, f:16, t,t,t,t) frontier: 130
-UP -> State: (5,6, f:15, t,t,t,t) frontier: 133
-UP -> State: (4,6, f:14, t,t,t,t) frontier: 136
-UP -> State: (3,6, f:13, t,t,t,t) frontier: 139
-UP -> State: (2,6, f:12, t,t,t,t) frontier: 142
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 145
-UP -> State: (2,6, f:10, t,t,t,t) frontier: 147
-UP -> State: (1,6, f:9, t,t,t,t) frontier: 150
-UP -> State: (2,6, f:8, t,t,t,t) frontier: 152
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 155
-UP -> State: (2,6, f:6, t,t,t,t) frontier: 157
-UP -> State: (1,6, f:5, t,t,t,t) frontier: 160
-DOWN -> State: (1,5, f:4, t,t,t,t) frontier: 161
-DOWN -> State: (1,4, f:3, t,t,t,t) frontier: 161
-DOWN -> State: (1,3, f:2, t,t,t,t) frontier: 161
-DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 161
-DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 161
-Nodes Expanded: 714
-time: 3.996 ms
+UP -> State: (4,1, f:19, f,f,f,f) frontier: 2
+UP -> State: (3,1, f:18, t,f,f,f) frontier: 4
+UP -> State: (2,1, f:17, t,f,f,f) frontier: 6
+UP -> State: (1,1, f:16, t,f,f,f) frontier: 8
+UP -> State: (2,1, f:15, t,f,f,f) frontier: 9
+UP -> State: (1,1, f:14, t,f,f,f) frontier: 11
+UP -> State: (2,1, f:13, t,f,f,f) frontier: 12
+UP -> State: (1,1, f:12, t,f,f,f) frontier: 14
+UP -> State: (2,1, f:11, t,f,f,f) frontier: 15
+DOWN -> State: (3,1, f:10, t,f,f,f) frontier: 16
+DOWN -> State: (4,1, f:9, t,f,f,f) frontier: 17
+DOWN -> State: (5,1, f:8, t,f,f,f) frontier: 18
+DOWN -> State: (6,1, f:7, t,f,f,f) frontier: 19
+LEFT -> State: (6,2, f:6, t,f,f,f) frontier: 19
+LEFT -> State: (6,3, f:5, t,f,f,f) frontier: 19
+RIGHT -> State: (6,4, f:4, t,f,f,f) frontier: 19
+RIGHT -> State: (6,5, f:3, t,f,f,f) frontier: 19
+LEFT -> State: (6,6, f:2, t,f,f,f) frontier: 19
+RIGHT -> State: (6,7, f:1, t,f,f,f) frontier: 19
+RIGHT -> State: (6,8, f:20, t,f,f,f) frontier: 19
+UP -> State: (5,8, f:19, t,f,f,f) frontier: 22
+UP -> State: (4,8, f:18, t,f,f,f) frontier: 24
+UP -> State: (3,8, f:17, t,f,f,f) frontier: 27
+UP -> State: (2,8, f:16, t,f,f,f) frontier: 30
+UP -> State: (1,8, f:15, t,f,f,f) frontier: 33
+UP -> State: (2,8, f:14, t,f,f,f) frontier: 35
+UP -> State: (1,8, f:13, t,f,f,f) frontier: 38
+UP -> State: (2,8, f:12, t,f,f,f) frontier: 40
+UP -> State: (1,8, f:11, t,f,f,f) frontier: 43
+UP -> State: (2,8, f:10, t,f,f,f) frontier: 45
+UP -> State: (1,8, f:9, t,f,f,f) frontier: 48
+UP -> State: (2,8, f:8, t,f,f,f) frontier: 50
+LEFT -> State: (2,7, f:7, t,f,f,f) frontier: 51
+LEFT -> State: (2,6, f:6, t,t,f,f) frontier: 51
+DOWN -> State: (3,6, f:5, t,t,f,f) frontier: 53
+DOWN -> State: (4,6, f:4, t,t,f,f) frontier: 55
+DOWN -> State: (5,6, f:3, t,t,f,f) frontier: 57
+DOWN -> State: (6,6, f:2, t,t,f,f) frontier: 58
+RIGHT -> State: (6,7, f:1, t,t,f,f) frontier: 58
+RIGHT -> State: (6,8, f:20, t,t,f,f) frontier: 58
+UP -> State: (5,8, f:19, t,t,f,f) frontier: 61
+UP -> State: (4,8, f:18, t,t,f,f) frontier: 63
+UP -> State: (3,8, f:17, t,t,f,f) frontier: 66
+UP -> State: (2,8, f:16, t,t,f,f) frontier: 69
+UP -> State: (1,8, f:15, t,t,f,f) frontier: 72
+UP -> State: (2,8, f:14, t,t,f,f) frontier: 74
+UP -> State: (1,8, f:13, t,t,f,f) frontier: 77
+UP -> State: (2,8, f:12, t,t,f,f) frontier: 79
+DOWN -> State: (3,8, f:11, t,t,f,f) frontier: 81
+DOWN -> State: (4,8, f:10, t,t,f,f) frontier: 83
+DOWN -> State: (5,8, f:9, t,t,f,f) frontier: 85
+LEFT -> State: (5,7, f:8, t,t,f,f) frontier: 86
+DOWN -> State: (6,7, f:7, t,t,f,f) frontier: 87
+DOWN -> State: (7,7, f:6, t,t,f,f) frontier: 88
+DOWN -> State: (8,7, f:5, t,t,f,f) frontier: 90
+LEFT -> State: (8,6, f:4, t,t,t,f) frontier: 91
+UP -> State: (7,6, f:3, t,t,t,f) frontier: 94
+UP -> State: (6,6, f:2, t,t,t,f) frontier: 96
+RIGHT -> State: (6,7, f:1, t,t,t,f) frontier: 96
+RIGHT -> State: (6,8, f:20, t,t,t,f) frontier: 96
+UP -> State: (5,8, f:19, t,t,t,f) frontier: 99
+UP -> State: (4,8, f:18, t,t,t,f) frontier: 101
+UP -> State: (3,8, f:17, t,t,t,f) frontier: 104
+UP -> State: (2,8, f:16, t,t,t,f) frontier: 107
+UP -> State: (1,8, f:15, t,t,t,f) frontier: 110
+UP -> State: (2,8, f:14, t,t,t,f) frontier: 112
+UP -> State: (1,8, f:13, t,t,t,f) frontier: 115
+UP -> State: (2,8, f:12, t,t,t,f) frontier: 117
+UP -> State: (1,8, f:11, t,t,t,f) frontier: 120
+UP -> State: (2,8, f:10, t,t,t,f) frontier: 122
+UP -> State: (1,8, f:9, t,t,t,f) frontier: 125
+UP -> State: (2,8, f:8, t,t,t,f) frontier: 127
+UP -> State: (1,8, f:7, t,t,t,f) frontier: 130
+DOWN -> State: (1,7, f:6, t,t,t,f) frontier: 131
+DOWN -> State: (1,6, f:5, t,t,t,f) frontier: 131
+DOWN -> State: (1,5, f:4, t,t,t,f) frontier: 131
+DOWN -> State: (1,4, f:3, t,t,t,f) frontier: 131
+DOWN -> State: (1,3, f:2, t,t,t,f) frontier: 131
+DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 131
+DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 132
+Nodes Expanded: 837
+time: 16.908 ms
 
 
 ****** test 8 ********
-Start State: (4,6, fuel:3)
-No Solution
-Nodes Expanded: 34
-time: 0 ms
+Start State: (2,6, fuel:8)
+Goal Found
+depth: 48
+Path:
+UP -> State: (1,6, f:7, f,f,f,f) frontier: 3
+UP -> State: (2,6, f:6, f,t,f,f) frontier: 5
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 7
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 9
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 11
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 12
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 12
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 12
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 15
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 17
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 20
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 23
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 26
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 28
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 31
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 33
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 35
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 37
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 39
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 40
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 41
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 42
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 44
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 45
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 48
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 50
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 50
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 50
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 53
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 55
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 58
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 61
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 64
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 66
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 69
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 71
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 74
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 75
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 75
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 75
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 75
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 75
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 75
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 77
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 79
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 79
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 81
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 82
+Nodes Expanded: 583
+time: 12.957 ms
 
 
 ****** test 9 ********
-Start State: (5,2, fuel:15)
-Result Reached (Goal Found)
+Start State: (5,9, fuel:2)
+Goal Found
+depth: 62
 Path:
-UP -> State: (4,2, f:14, f,f,f,f) frontier: 3
-UP -> State: (3,2, f:13, f,f,f,f) frontier: 6
-UP -> State: (2,2, f:12, f,f,f,f) frontier: 9
-DOWN -> State: (3,2, f:11, f,f,f,f) frontier: 11
-DOWN -> State: (4,2, f:10, f,f,f,f) frontier: 13
-DOWN -> State: (5,2, f:9, f,f,f,f) frontier: 15
-DOWN -> State: (6,2, f:8, f,f,f,f) frontier: 17
-DOWN -> State: (7,2, f:7, f,f,f,f) frontier: 19
-DOWN -> State: (8,2, f:6, f,f,f,f) frontier: 21
-DOWN -> State: (9,2, f:5, f,f,f,f) frontier: 23
-DOWN -> State: (10,2, f:4, f,f,f,f) frontier: 25
-LEFT -> State: (10,3, f:3, f,f,f,f) frontier: 25
-LEFT -> State: (10,4, f:2, f,f,f,f) frontier: 25
-LEFT -> State: (10,5, f:1, f,f,f,f) frontier: 25
-LEFT -> State: (10,6, f:20, f,f,f,f) frontier: 25
-UP -> State: (9,6, f:19, f,f,f,f) frontier: 27
-UP -> State: (8,6, f:18, f,f,f,f) frontier: 29
-UP -> State: (7,6, f:17, f,f,f,f) frontier: 32
-UP -> State: (6,6, f:16, f,f,f,f) frontier: 35
-UP -> State: (5,6, f:15, f,f,f,f) frontier: 38
-UP -> State: (4,6, f:14, f,f,f,t) frontier: 41
-UP -> State: (3,6, f:13, f,f,f,t) frontier: 44
-UP -> State: (2,6, f:12, f,f,f,t) frontier: 47
-UP -> State: (1,6, f:11, f,t,f,t) frontier: 50
-UP -> State: (2,6, f:10, f,t,f,t) frontier: 52
-UP -> State: (1,6, f:9, f,t,f,t) frontier: 55
-UP -> State: (2,6, f:8, f,t,f,t) frontier: 57
-DOWN -> State: (3,6, f:7, f,t,f,t) frontier: 59
-DOWN -> State: (4,6, f:6, f,t,f,t) frontier: 61
-DOWN -> State: (5,6, f:5, f,t,f,t) frontier: 63
-DOWN -> State: (6,6, f:4, f,t,f,t) frontier: 65
-DOWN -> State: (7,6, f:3, f,t,f,t) frontier: 67
-DOWN -> State: (8,6, f:2, f,t,f,t) frontier: 69
-DOWN -> State: (9,6, f:1, f,t,f,t) frontier: 71
-DOWN -> State: (10,6, f:20, f,t,f,t) frontier: 73
-UP -> State: (9,6, f:19, f,t,f,t) frontier: 75
-UP -> State: (8,6, f:18, f,t,f,t) frontier: 77
-UP -> State: (7,6, f:17, f,t,f,t) frontier: 80
-UP -> State: (6,6, f:16, f,t,f,t) frontier: 83
-UP -> State: (5,6, f:15, f,t,f,t) frontier: 86
-UP -> State: (4,6, f:14, f,t,f,t) frontier: 89
-UP -> State: (3,6, f:13, f,t,f,t) frontier: 92
-UP -> State: (2,6, f:12, f,t,f,t) frontier: 95
-DOWN -> State: (3,6, f:11, f,t,f,t) frontier: 97
-DOWN -> State: (4,6, f:10, f,t,f,t) frontier: 99
-DOWN -> State: (5,6, f:9, f,t,f,t) frontier: 101
-DOWN -> State: (6,6, f:8, f,t,f,t) frontier: 103
-DOWN -> State: (7,6, f:7, f,t,f,t) frontier: 105
-DOWN -> State: (8,6, f:6, f,t,f,t) frontier: 107
-DOWN -> State: (9,6, f:5, f,t,f,t) frontier: 109
-RIGHT -> State: (9,7, f:4, f,t,f,t) frontier: 109
-DOWN -> State: (10,7, f:3, f,t,f,t) frontier: 110
-LEFT -> State: (10,8, f:2, t,t,t,t) frontier: 110
-DOWN -> State: (10,7, f:1, t,t,t,t) frontier: 111
-DOWN -> State: (10,6, f:20, t,t,t,t) frontier: 111
-UP -> State: (9,6, f:19, t,t,t,t) frontier: 113
-UP -> State: (8,6, f:18, t,t,t,t) frontier: 115
-UP -> State: (7,6, f:17, t,t,t,t) frontier: 118
-UP -> State: (6,6, f:16, t,t,t,t) frontier: 121
-UP -> State: (5,6, f:15, t,t,t,t) frontier: 124
-UP -> State: (4,6, f:14, t,t,t,t) frontier: 127
-UP -> State: (3,6, f:13, t,t,t,t) frontier: 130
-UP -> State: (2,6, f:12, t,t,t,t) frontier: 133
-UP -> State: (1,6, f:11, t,t,t,t) frontier: 136
-UP -> State: (2,6, f:10, t,t,t,t) frontier: 138
-UP -> State: (1,6, f:9, t,t,t,t) frontier: 141
-UP -> State: (2,6, f:8, t,t,t,t) frontier: 143
-UP -> State: (1,6, f:7, t,t,t,t) frontier: 146
-UP -> State: (2,6, f:6, t,t,t,t) frontier: 148
-UP -> State: (1,6, f:5, t,t,t,t) frontier: 151
-DOWN -> State: (1,5, f:4, t,t,t,t) frontier: 152
-DOWN -> State: (1,4, f:3, t,t,t,t) frontier: 152
-DOWN -> State: (1,3, f:2, t,t,t,t) frontier: 152
-DOWN -> State: (1,2, f:1, t,t,t,t) frontier: 152
-DOWN -> State: (1,1, f:0, t,t,t,t) frontier: 152
-Nodes Expanded: 711
-time: 0 ms
+DOWN -> State: (6,9, f:1, f,f,f,f) frontier: 2
+LEFT -> State: (6,8, f:20, f,f,f,f) frontier: 3
+UP -> State: (5,8, f:19, f,f,f,f) frontier: 6
+UP -> State: (4,8, f:18, f,f,f,f) frontier: 8
+UP -> State: (3,8, f:17, f,f,f,f) frontier: 11
+UP -> State: (2,8, f:16, f,f,f,f) frontier: 14
+UP -> State: (1,8, f:15, f,f,f,f) frontier: 17
+UP -> State: (2,8, f:14, f,f,f,f) frontier: 19
+UP -> State: (1,8, f:13, f,f,f,f) frontier: 22
+UP -> State: (2,8, f:12, f,f,f,f) frontier: 24
+UP -> State: (1,8, f:11, f,f,f,f) frontier: 27
+UP -> State: (2,8, f:10, f,f,f,f) frontier: 29
+UP -> State: (1,8, f:9, f,f,f,f) frontier: 32
+UP -> State: (2,8, f:8, f,f,f,f) frontier: 34
+LEFT -> State: (2,7, f:7, f,f,f,f) frontier: 35
+LEFT -> State: (2,6, f:6, f,t,f,f) frontier: 35
+DOWN -> State: (3,6, f:5, f,t,f,f) frontier: 37
+DOWN -> State: (4,6, f:4, f,t,f,f) frontier: 39
+DOWN -> State: (5,6, f:3, f,t,f,f) frontier: 41
+DOWN -> State: (6,6, f:2, f,t,f,f) frontier: 42
+RIGHT -> State: (6,7, f:1, f,t,f,f) frontier: 42
+RIGHT -> State: (6,8, f:20, f,t,f,f) frontier: 42
+UP -> State: (5,8, f:19, f,t,f,f) frontier: 45
+UP -> State: (4,8, f:18, f,t,f,f) frontier: 47
+UP -> State: (3,8, f:17, f,t,f,f) frontier: 50
+UP -> State: (2,8, f:16, f,t,f,f) frontier: 53
+UP -> State: (1,8, f:15, f,t,f,f) frontier: 56
+UP -> State: (2,8, f:14, f,t,f,f) frontier: 58
+UP -> State: (1,8, f:13, f,t,f,f) frontier: 61
+UP -> State: (2,8, f:12, f,t,f,f) frontier: 63
+DOWN -> State: (3,8, f:11, f,t,f,f) frontier: 65
+DOWN -> State: (4,8, f:10, f,t,f,f) frontier: 67
+DOWN -> State: (5,8, f:9, f,t,f,f) frontier: 69
+LEFT -> State: (5,7, f:8, f,t,f,f) frontier: 70
+DOWN -> State: (6,7, f:7, f,t,f,f) frontier: 71
+DOWN -> State: (7,7, f:6, f,t,f,f) frontier: 72
+DOWN -> State: (8,7, f:5, f,t,f,f) frontier: 74
+LEFT -> State: (8,6, f:4, f,t,t,f) frontier: 75
+UP -> State: (7,6, f:3, f,t,t,f) frontier: 78
+UP -> State: (6,6, f:2, f,t,t,f) frontier: 80
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 80
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 80
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 83
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 85
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 88
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 91
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 94
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 96
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 99
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 101
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 104
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 105
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 105
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 105
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 105
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 105
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 105
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 107
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 109
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 109
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 111
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 112
+Nodes Expanded: 725
+time: 13.666 ms
 
 
 ****** test 10 ********
-Start State: (1,8, fuel:10)
-No Solution
-Nodes Expanded: 505
-time: 0 ms
+Start State: (2,5, fuel:19)
+Goal Found
+depth: 79
+Path:
+UP -> State: (1,5, f:18, f,f,f,f) frontier: 3
+UP -> State: (2,5, f:17, f,f,f,f) frontier: 5
+UP -> State: (1,5, f:16, f,f,f,f) frontier: 8
+UP -> State: (2,5, f:15, f,f,f,f) frontier: 10
+UP -> State: (1,5, f:14, f,f,f,f) frontier: 13
+UP -> State: (2,5, f:13, f,f,f,f) frontier: 15
+UP -> State: (1,5, f:12, f,f,f,f) frontier: 18
+UP -> State: (2,5, f:11, f,f,f,f) frontier: 20
+UP -> State: (1,5, f:10, f,f,f,f) frontier: 23
+UP -> State: (2,5, f:9, f,f,f,f) frontier: 25
+UP -> State: (1,5, f:8, f,f,f,f) frontier: 28
+UP -> State: (2,5, f:7, f,f,f,f) frontier: 30
+DOWN -> State: (3,5, f:6, f,f,f,f) frontier: 32
+DOWN -> State: (4,5, f:5, f,f,f,f) frontier: 34
+LEFT -> State: (4,6, f:4, f,f,f,f) frontier: 34
+DOWN -> State: (5,6, f:3, f,f,f,f) frontier: 35
+DOWN -> State: (6,6, f:2, f,f,f,f) frontier: 36
+RIGHT -> State: (6,7, f:1, f,f,f,f) frontier: 36
+RIGHT -> State: (6,8, f:20, f,f,f,f) frontier: 36
+UP -> State: (5,8, f:19, f,f,f,f) frontier: 39
+UP -> State: (4,8, f:18, f,f,f,f) frontier: 41
+UP -> State: (3,8, f:17, f,f,f,f) frontier: 44
+UP -> State: (2,8, f:16, f,f,f,f) frontier: 47
+UP -> State: (1,8, f:15, f,f,f,f) frontier: 50
+UP -> State: (2,8, f:14, f,f,f,f) frontier: 52
+UP -> State: (1,8, f:13, f,f,f,f) frontier: 55
+UP -> State: (2,8, f:12, f,f,f,f) frontier: 57
+DOWN -> State: (3,8, f:11, f,f,f,f) frontier: 59
+DOWN -> State: (4,8, f:10, f,f,f,f) frontier: 61
+DOWN -> State: (5,8, f:9, f,f,f,f) frontier: 63
+LEFT -> State: (5,7, f:8, f,f,f,f) frontier: 64
+DOWN -> State: (6,7, f:7, f,f,f,f) frontier: 65
+DOWN -> State: (7,7, f:6, f,f,f,f) frontier: 66
+DOWN -> State: (8,7, f:5, f,f,f,f) frontier: 68
+LEFT -> State: (8,6, f:4, f,f,t,f) frontier: 69
+UP -> State: (7,6, f:3, f,f,t,f) frontier: 72
+UP -> State: (6,6, f:2, f,f,t,f) frontier: 74
+RIGHT -> State: (6,7, f:1, f,f,t,f) frontier: 74
+RIGHT -> State: (6,8, f:20, f,f,t,f) frontier: 74
+UP -> State: (5,8, f:19, f,f,t,f) frontier: 77
+UP -> State: (4,8, f:18, f,f,t,f) frontier: 79
+UP -> State: (3,8, f:17, f,f,t,f) frontier: 82
+UP -> State: (2,8, f:16, f,f,t,f) frontier: 85
+UP -> State: (1,8, f:15, f,f,t,f) frontier: 88
+UP -> State: (2,8, f:14, f,f,t,f) frontier: 90
+UP -> State: (1,8, f:13, f,f,t,f) frontier: 93
+UP -> State: (2,8, f:12, f,f,t,f) frontier: 95
+UP -> State: (1,8, f:11, f,f,t,f) frontier: 98
+UP -> State: (2,8, f:10, f,f,t,f) frontier: 100
+UP -> State: (1,8, f:9, f,f,t,f) frontier: 103
+UP -> State: (2,8, f:8, f,f,t,f) frontier: 105
+LEFT -> State: (2,7, f:7, f,f,t,f) frontier: 106
+LEFT -> State: (2,6, f:6, f,t,t,f) frontier: 106
+DOWN -> State: (3,6, f:5, f,t,t,f) frontier: 108
+DOWN -> State: (4,6, f:4, f,t,t,f) frontier: 110
+DOWN -> State: (5,6, f:3, f,t,t,f) frontier: 112
+DOWN -> State: (6,6, f:2, f,t,t,f) frontier: 113
+RIGHT -> State: (6,7, f:1, f,t,t,f) frontier: 113
+RIGHT -> State: (6,8, f:20, f,t,t,f) frontier: 113
+UP -> State: (5,8, f:19, f,t,t,f) frontier: 116
+UP -> State: (4,8, f:18, f,t,t,f) frontier: 118
+UP -> State: (3,8, f:17, f,t,t,f) frontier: 121
+UP -> State: (2,8, f:16, f,t,t,f) frontier: 124
+UP -> State: (1,8, f:15, f,t,t,f) frontier: 127
+UP -> State: (2,8, f:14, f,t,t,f) frontier: 129
+UP -> State: (1,8, f:13, f,t,t,f) frontier: 132
+UP -> State: (2,8, f:12, f,t,t,f) frontier: 134
+UP -> State: (1,8, f:11, f,t,t,f) frontier: 137
+DOWN -> State: (1,7, f:10, f,t,t,f) frontier: 138
+DOWN -> State: (1,6, f:9, f,t,t,f) frontier: 138
+DOWN -> State: (1,5, f:8, f,t,t,f) frontier: 138
+DOWN -> State: (1,4, f:7, f,t,t,f) frontier: 138
+DOWN -> State: (1,3, f:6, f,t,t,f) frontier: 138
+DOWN -> State: (1,2, f:5, f,t,t,t) frontier: 138
+UP -> State: (2,2, f:4, f,t,t,t) frontier: 140
+DOWN -> State: (3,2, f:3, f,t,t,t) frontier: 142
+LEFT -> State: (3,1, f:2, t,t,t,t) frontier: 142
+UP -> State: (2,1, f:1, t,t,t,t) frontier: 144
+UP -> State: (1,1, f:0, t,t,t,t) frontier: 145
+Nodes Expanded: 734
+time: 3.967 ms
 
 **********************************************IDS************************************************
 
 ****** test 1 ********
-Start State: (8,10, fuel:6)
+Start State: (3,9, fuel:20)
 goal found 
-depth now : 20
-DOWN -> (9,10), f:5 ( f,f,f,f) frontier: 1
-DOWN -> (10,10), f:4 ( f,f,f,f) frontier: 2
-DOWN -> (10,9), f:3 ( f,f,f,f) frontier: 2
-DOWN -> (10,8), f:2 ( t,f,t,f) frontier: 2
-DOWN -> (10,7), f:1 ( t,f,t,f) frontier: 3
-DOWN -> (10,6), f:20 ( t,f,t,f) frontier: 3
-UP -> (9,6), f:19 ( t,f,t,f) frontier: 5
-UP -> (8,6), f:18 ( t,f,t,f) frontier: 7
-UP -> (7,6), f:17 ( t,f,t,f) frontier: 10
-UP -> (6,6), f:16 ( t,f,t,f) frontier: 13
-UP -> (5,6), f:15 ( t,f,t,f) frontier: 16
-UP -> (4,6), f:14 ( t,f,t,t) frontier: 19
-UP -> (3,6), f:13 ( t,f,t,t) frontier: 22
-UP -> (2,6), f:12 ( t,f,t,t) frontier: 25
-UP -> (1,6), f:11 ( t,t,t,t) frontier: 28
-DOWN -> (1,5), f:10 ( t,t,t,t) frontier: 29
-DOWN -> (1,4), f:9 ( t,t,t,t) frontier: 29
-DOWN -> (1,3), f:8 ( t,t,t,t) frontier: 29
-DOWN -> (1,2), f:7 ( t,t,t,t) frontier: 29
-DOWN -> (1,1), f:6 ( t,t,t,t) frontier: 29
-nodes Expanded: 123
-time: 99.75 ms
+depth  : 34
+UP -> (2,9), f:19 ( f,f,f,f) frontier: 3
+LEFT -> (2,8), f:18 ( f,f,f,f) frontier: 4
+LEFT -> (2,7), f:17 ( f,f,f,f) frontier: 4
+LEFT -> (2,6), f:16 ( f,t,f,f) frontier: 4
+DOWN -> (3,6), f:15 ( f,t,f,f) frontier: 6
+DOWN -> (4,6), f:14 ( f,t,f,f) frontier: 8
+DOWN -> (5,6), f:13 ( f,t,f,f) frontier: 10
+DOWN -> (6,6), f:12 ( f,t,f,f) frontier: 11
+DOWN -> (7,6), f:11 ( f,t,f,f) frontier: 13
+DOWN -> (8,6), f:10 ( f,t,t,f) frontier: 15
+UP -> (7,6), f:9 ( f,t,t,f) frontier: 18
+UP -> (6,6), f:8 ( f,t,t,f) frontier: 20
+LEFT -> (6,5), f:7 ( f,t,t,f) frontier: 21
+DOWN -> (6,4), f:6 ( f,t,t,f) frontier: 21
+UP -> (5,4), f:5 ( f,t,t,f) frontier: 24
+DOWN -> (6,4), f:4 ( f,t,t,f) frontier: 25
+RIGHT -> (6,5), f:3 ( f,t,t,f) frontier: 25
+LEFT -> (6,6), f:2 ( f,t,t,f) frontier: 25
+RIGHT -> (6,7), f:1 ( f,t,t,f) frontier: 25
+RIGHT -> (6,8), f:20 ( f,t,t,f) frontier: 25
+UP -> (5,8), f:19 ( f,t,t,f) frontier: 28
+UP -> (4,8), f:18 ( f,t,t,f) frontier: 30
+LEFT -> (4,7), f:17 ( f,t,t,f) frontier: 31
+LEFT -> (4,6), f:16 ( f,t,t,f) frontier: 31
+LEFT -> (4,5), f:15 ( f,t,t,f) frontier: 31
+DOWN -> (4,4), f:14 ( f,t,t,f) frontier: 31
+LEFT -> (4,3), f:13 ( f,t,t,f) frontier: 31
+DOWN -> (4,2), f:12 ( f,t,t,f) frontier: 31
+UP -> (3,2), f:11 ( f,t,t,f) frontier: 32
+LEFT -> (3,1), f:10 ( t,t,t,f) frontier: 32
+UP -> (2,1), f:9 ( t,t,t,f) frontier: 34
+UP -> (1,1), f:8 ( t,t,t,f) frontier: 35
+DOWN -> (1,2), f:7 ( t,t,t,t) frontier: 35
+DOWN -> (1,1), f:6 ( t,t,t,t) frontier: 36
+nodes Expanded: 2675
+time: 2536.4 ms
 
 
 ****** test 2 ********
-Start State: (2,2, fuel:10)
-nodes Expanded: 333
-No Solution
-time: 72.779 ms
+Start State: (10,6, fuel:13)
+goal found 
+depth  : 28
+UP -> (9,6), f:12 ( f,f,f,f) frontier: 2
+UP -> (8,6), f:11 ( f,f,t,f) frontier: 5
+UP -> (7,6), f:10 ( f,f,t,f) frontier: 8
+UP -> (6,6), f:9 ( f,f,t,f) frontier: 11
+UP -> (5,6), f:8 ( f,f,t,f) frontier: 14
+UP -> (4,6), f:7 ( f,f,t,f) frontier: 16
+UP -> (3,6), f:6 ( f,f,t,f) frontier: 19
+DOWN -> (4,6), f:5 ( f,f,t,f) frontier: 21
+DOWN -> (5,6), f:4 ( f,f,t,f) frontier: 23
+DOWN -> (6,6), f:3 ( f,f,t,f) frontier: 24
+RIGHT -> (6,7), f:2 ( f,f,t,f) frontier: 24
+RIGHT -> (6,8), f:20 ( f,f,t,f) frontier: 24
+UP -> (5,8), f:19 ( f,f,t,f) frontier: 27
+UP -> (4,8), f:18 ( f,f,t,f) frontier: 29
+UP -> (3,8), f:17 ( f,f,t,f) frontier: 32
+UP -> (2,8), f:16 ( f,f,t,f) frontier: 35
+LEFT -> (2,7), f:15 ( f,f,t,f) frontier: 36
+LEFT -> (2,6), f:14 ( f,t,t,f) frontier: 36
+UP -> (1,6), f:13 ( f,t,t,f) frontier: 39
+DOWN -> (1,5), f:12 ( f,t,t,f) frontier: 40
+DOWN -> (1,4), f:11 ( f,t,t,f) frontier: 40
+DOWN -> (1,3), f:10 ( f,t,t,f) frontier: 40
+DOWN -> (1,2), f:9 ( f,t,t,t) frontier: 40
+UP -> (2,2), f:8 ( f,t,t,t) frontier: 42
+DOWN -> (3,2), f:7 ( f,t,t,t) frontier: 44
+LEFT -> (3,1), f:6 ( t,t,t,t) frontier: 44
+UP -> (2,1), f:5 ( t,t,t,t) frontier: 46
+UP -> (1,1), f:4 ( t,t,t,t) frontier: 47
+nodes Expanded: 703
+time: 714.926 ms
 
 
 ****** test 3 ********
-Start State: (8,5, fuel:2)
-nodes Expanded: 14
-No Solution
-time: 0 ms
+Start State: (5,1, fuel:8)
+goal found 
+depth  : 28
+DOWN -> (6,1), f:7 ( f,f,f,f) frontier: 1
+LEFT -> (6,2), f:6 ( f,f,f,f) frontier: 1
+LEFT -> (6,3), f:5 ( f,f,f,f) frontier: 1
+RIGHT -> (6,4), f:4 ( f,f,f,f) frontier: 1
+RIGHT -> (6,5), f:3 ( f,f,f,f) frontier: 1
+LEFT -> (6,6), f:2 ( f,f,f,f) frontier: 1
+RIGHT -> (6,7), f:1 ( f,f,f,f) frontier: 1
+RIGHT -> (6,8), f:20 ( f,f,f,f) frontier: 1
+DOWN -> (7,8), f:19 ( f,f,f,f) frontier: 3
+DOWN -> (8,8), f:18 ( f,f,f,f) frontier: 5
+LEFT -> (8,7), f:17 ( f,f,f,f) frontier: 6
+LEFT -> (8,6), f:16 ( f,f,t,f) frontier: 6
+UP -> (7,6), f:15 ( f,f,t,f) frontier: 9
+UP -> (6,6), f:14 ( f,f,t,f) frontier: 11
+UP -> (5,6), f:13 ( f,f,t,f) frontier: 13
+UP -> (4,6), f:12 ( f,f,t,f) frontier: 14
+UP -> (3,6), f:11 ( f,f,t,f) frontier: 16
+UP -> (2,6), f:10 ( f,t,t,f) frontier: 18
+UP -> (1,6), f:9 ( f,t,t,f) frontier: 21
+DOWN -> (1,5), f:8 ( f,t,t,f) frontier: 22
+DOWN -> (1,4), f:7 ( f,t,t,f) frontier: 22
+DOWN -> (1,3), f:6 ( f,t,t,f) frontier: 22
+DOWN -> (1,2), f:5 ( f,t,t,t) frontier: 22
+UP -> (2,2), f:4 ( f,t,t,t) frontier: 24
+DOWN -> (3,2), f:3 ( f,t,t,t) frontier: 26
+LEFT -> (3,1), f:2 ( t,t,t,t) frontier: 26
+UP -> (2,1), f:1 ( t,t,t,t) frontier: 28
+UP -> (1,1), f:0 ( t,t,t,t) frontier: 29
+nodes Expanded: 2696
+time: 632.622 ms
 
 
 ****** test 4 ********
-Start State: (9,3, fuel:2)
-nodes Expanded: 13
+Start State: (8,7, fuel:1)
+nodes Expanded: 5
 No Solution
 time: 0 ms
 
 
 ****** test 5 ********
-Start State: (9,2, fuel:19)
+Start State: (9,8, fuel:10)
 goal found 
-depth now : 37
-UP -> (8,2), f:18 ( f,f,f,f) frontier: 3
-UP -> (7,2), f:17 ( f,f,f,f) frontier: 6
-UP -> (6,2), f:16 ( f,f,f,f) frontier: 9
-UP -> (5,2), f:15 ( f,f,f,f) frontier: 12
-UP -> (4,2), f:14 ( f,f,f,f) frontier: 15
-UP -> (3,2), f:13 ( f,f,f,f) frontier: 18
-UP -> (2,2), f:12 ( f,f,f,f) frontier: 21
-DOWN -> (3,2), f:11 ( f,f,f,f) frontier: 23
-DOWN -> (4,2), f:10 ( f,f,f,f) frontier: 25
-DOWN -> (5,2), f:9 ( f,f,f,f) frontier: 27
-DOWN -> (6,2), f:8 ( f,f,f,f) frontier: 29
-DOWN -> (7,2), f:7 ( f,f,f,f) frontier: 31
-DOWN -> (8,2), f:6 ( f,f,f,f) frontier: 33
-DOWN -> (9,2), f:5 ( f,f,f,f) frontier: 35
-DOWN -> (10,2), f:4 ( f,f,f,f) frontier: 37
-LEFT -> (10,3), f:3 ( f,f,f,f) frontier: 37
-LEFT -> (10,4), f:2 ( f,f,f,f) frontier: 37
-LEFT -> (10,5), f:1 ( f,f,f,f) frontier: 37
-LEFT -> (10,6), f:20 ( f,f,f,f) frontier: 37
-LEFT -> (10,7), f:19 ( f,f,f,f) frontier: 37
-LEFT -> (10,8), f:18 ( t,f,t,f) frontier: 37
-UP -> (9,8), f:17 ( t,f,t,f) frontier: 39
-UP -> (8,8), f:16 ( t,f,t,f) frontier: 41
-UP -> (7,8), f:15 ( t,f,t,f) frontier: 43
-UP -> (6,8), f:14 ( t,f,t,f) frontier: 45
-UP -> (5,8), f:13 ( t,f,t,f) frontier: 47
-UP -> (4,8), f:12 ( t,f,t,f) frontier: 49
-LEFT -> (4,7), f:11 ( t,f,t,f) frontier: 50
-LEFT -> (4,6), f:10 ( t,f,t,t) frontier: 50
-UP -> (3,6), f:9 ( t,f,t,t) frontier: 53
-UP -> (2,6), f:8 ( t,f,t,t) frontier: 55
-UP -> (1,6), f:7 ( t,t,t,t) frontier: 57
-DOWN -> (1,5), f:6 ( t,t,t,t) frontier: 58
-DOWN -> (1,4), f:5 ( t,t,t,t) frontier: 58
-DOWN -> (1,3), f:4 ( t,t,t,t) frontier: 58
-DOWN -> (1,2), f:3 ( t,t,t,t) frontier: 58
-DOWN -> (1,1), f:2 ( t,t,t,t) frontier: 58
-nodes Expanded: 2156
-time: 621.647 ms
+depth  : 23
+UP -> (8,8), f:9 ( f,f,f,f) frontier: 3
+UP -> (7,8), f:8 ( f,f,f,f) frontier: 6
+UP -> (6,8), f:20 ( f,f,f,f) frontier: 9
+DOWN -> (7,8), f:19 ( f,f,f,f) frontier: 11
+DOWN -> (8,8), f:18 ( f,f,f,f) frontier: 13
+LEFT -> (8,7), f:17 ( f,f,f,f) frontier: 14
+LEFT -> (8,6), f:16 ( f,f,t,f) frontier: 14
+UP -> (7,6), f:15 ( f,f,t,f) frontier: 17
+UP -> (6,6), f:14 ( f,f,t,f) frontier: 19
+UP -> (5,6), f:13 ( f,f,t,f) frontier: 21
+UP -> (4,6), f:12 ( f,f,t,f) frontier: 22
+UP -> (3,6), f:11 ( f,f,t,f) frontier: 24
+UP -> (2,6), f:10 ( f,t,t,f) frontier: 26
+UP -> (1,6), f:9 ( f,t,t,f) frontier: 29
+DOWN -> (1,5), f:8 ( f,t,t,f) frontier: 30
+DOWN -> (1,4), f:7 ( f,t,t,f) frontier: 30
+DOWN -> (1,3), f:6 ( f,t,t,f) frontier: 30
+DOWN -> (1,2), f:5 ( f,t,t,t) frontier: 30
+UP -> (2,2), f:4 ( f,t,t,t) frontier: 32
+DOWN -> (3,2), f:3 ( f,t,t,t) frontier: 34
+LEFT -> (3,1), f:2 ( t,t,t,t) frontier: 34
+UP -> (2,1), f:1 ( t,t,t,t) frontier: 36
+UP -> (1,1), f:0 ( t,t,t,t) frontier: 37
+nodes Expanded: 2699
+time: 720.28 ms
 
 
 ****** test 6 ********
-Start State: (4,2, fuel:12)
+Start State: (6,7, fuel:15)
 goal found 
-depth now : 30
-UP -> (3,2), f:11 ( f,f,f,f) frontier: 3
-DOWN -> (4,2), f:10 ( f,f,f,f) frontier: 5
-DOWN -> (5,2), f:9 ( f,f,f,f) frontier: 7
-DOWN -> (6,2), f:8 ( f,f,f,f) frontier: 9
-DOWN -> (7,2), f:7 ( f,f,f,f) frontier: 11
-DOWN -> (8,2), f:6 ( f,f,f,f) frontier: 13
-DOWN -> (9,2), f:5 ( f,f,f,f) frontier: 15
-DOWN -> (10,2), f:4 ( f,f,f,f) frontier: 17
-LEFT -> (10,3), f:3 ( f,f,f,f) frontier: 17
-LEFT -> (10,4), f:2 ( f,f,f,f) frontier: 17
-LEFT -> (10,5), f:1 ( f,f,f,f) frontier: 17
-LEFT -> (10,6), f:20 ( f,f,f,f) frontier: 17
-LEFT -> (10,7), f:19 ( f,f,f,f) frontier: 17
-LEFT -> (10,8), f:18 ( t,f,t,f) frontier: 17
-UP -> (9,8), f:17 ( t,f,t,f) frontier: 19
-UP -> (8,8), f:16 ( t,f,t,f) frontier: 21
-UP -> (7,8), f:15 ( t,f,t,f) frontier: 23
-UP -> (6,8), f:14 ( t,f,t,f) frontier: 25
-UP -> (5,8), f:13 ( t,f,t,f) frontier: 27
-UP -> (4,8), f:12 ( t,f,t,f) frontier: 29
-LEFT -> (4,7), f:11 ( t,f,t,f) frontier: 30
-LEFT -> (4,6), f:10 ( t,f,t,t) frontier: 30
-UP -> (3,6), f:9 ( t,f,t,t) frontier: 33
-UP -> (2,6), f:8 ( t,f,t,t) frontier: 35
-UP -> (1,6), f:7 ( t,t,t,t) frontier: 37
-DOWN -> (1,5), f:6 ( t,t,t,t) frontier: 38
-DOWN -> (1,4), f:5 ( t,t,t,t) frontier: 38
-DOWN -> (1,3), f:4 ( t,t,t,t) frontier: 38
-DOWN -> (1,2), f:3 ( t,t,t,t) frontier: 38
-DOWN -> (1,1), f:2 ( t,t,t,t) frontier: 38
-nodes Expanded: 2100
-time: 312.768 ms
+depth  : 31
+UP -> (5,7), f:14 ( f,f,f,f) frontier: 3
+UP -> (4,7), f:13 ( f,f,f,f) frontier: 6
+UP -> (3,7), f:12 ( f,f,f,f) frontier: 9
+UP -> (2,7), f:11 ( f,f,f,f) frontier: 12
+DOWN -> (3,7), f:10 ( f,f,f,f) frontier: 14
+DOWN -> (4,7), f:9 ( f,f,f,f) frontier: 16
+DOWN -> (5,7), f:8 ( f,f,f,f) frontier: 18
+DOWN -> (6,7), f:7 ( f,f,f,f) frontier: 20
+DOWN -> (7,7), f:6 ( f,f,f,f) frontier: 21
+DOWN -> (8,7), f:5 ( f,f,f,f) frontier: 23
+LEFT -> (8,6), f:4 ( f,f,t,f) frontier: 24
+UP -> (7,6), f:3 ( f,f,t,f) frontier: 27
+UP -> (6,6), f:2 ( f,f,t,f) frontier: 29
+RIGHT -> (6,7), f:1 ( f,f,t,f) frontier: 29
+RIGHT -> (6,8), f:20 ( f,f,t,f) frontier: 29
+UP -> (5,8), f:19 ( f,f,t,f) frontier: 32
+UP -> (4,8), f:18 ( f,f,t,f) frontier: 34
+UP -> (3,8), f:17 ( f,f,t,f) frontier: 37
+UP -> (2,8), f:16 ( f,f,t,f) frontier: 40
+LEFT -> (2,7), f:15 ( f,f,t,f) frontier: 41
+LEFT -> (2,6), f:14 ( f,t,t,f) frontier: 41
+UP -> (1,6), f:13 ( f,t,t,f) frontier: 44
+DOWN -> (1,5), f:12 ( f,t,t,f) frontier: 45
+DOWN -> (1,4), f:11 ( f,t,t,f) frontier: 45
+DOWN -> (1,3), f:10 ( f,t,t,f) frontier: 45
+DOWN -> (1,2), f:9 ( f,t,t,t) frontier: 45
+UP -> (2,2), f:8 ( f,t,t,t) frontier: 47
+DOWN -> (3,2), f:7 ( f,t,t,t) frontier: 49
+LEFT -> (3,1), f:6 ( t,t,t,t) frontier: 49
+UP -> (2,1), f:5 ( t,t,t,t) frontier: 51
+UP -> (1,1), f:4 ( t,t,t,t) frontier: 52
+nodes Expanded: 1852
+time: 2377.04 ms
 
 
 ****** test 7 ********
-Start State: (8,2, fuel:18)
+Start State: (5,1, fuel:20)
 goal found 
-depth now : 36
-UP -> (7,2), f:17 ( f,f,f,f) frontier: 3
-UP -> (6,2), f:16 ( f,f,f,f) frontier: 6
-UP -> (5,2), f:15 ( f,f,f,f) frontier: 9
-UP -> (4,2), f:14 ( f,f,f,f) frontier: 12
-UP -> (3,2), f:13 ( f,f,f,f) frontier: 15
-UP -> (2,2), f:12 ( f,f,f,f) frontier: 18
-DOWN -> (3,2), f:11 ( f,f,f,f) frontier: 20
-DOWN -> (4,2), f:10 ( f,f,f,f) frontier: 22
-DOWN -> (5,2), f:9 ( f,f,f,f) frontier: 24
-DOWN -> (6,2), f:8 ( f,f,f,f) frontier: 26
-DOWN -> (7,2), f:7 ( f,f,f,f) frontier: 28
-DOWN -> (8,2), f:6 ( f,f,f,f) frontier: 30
-DOWN -> (9,2), f:5 ( f,f,f,f) frontier: 32
-DOWN -> (10,2), f:4 ( f,f,f,f) frontier: 34
-LEFT -> (10,3), f:3 ( f,f,f,f) frontier: 34
-LEFT -> (10,4), f:2 ( f,f,f,f) frontier: 34
-LEFT -> (10,5), f:1 ( f,f,f,f) frontier: 34
-LEFT -> (10,6), f:20 ( f,f,f,f) frontier: 34
-LEFT -> (10,7), f:19 ( f,f,f,f) frontier: 34
-LEFT -> (10,8), f:18 ( t,f,t,f) frontier: 34
-UP -> (9,8), f:17 ( t,f,t,f) frontier: 36
-UP -> (8,8), f:16 ( t,f,t,f) frontier: 38
-UP -> (7,8), f:15 ( t,f,t,f) frontier: 40
-UP -> (6,8), f:14 ( t,f,t,f) frontier: 42
-UP -> (5,8), f:13 ( t,f,t,f) frontier: 44
-UP -> (4,8), f:12 ( t,f,t,f) frontier: 46
-LEFT -> (4,7), f:11 ( t,f,t,f) frontier: 47
-LEFT -> (4,6), f:10 ( t,f,t,t) frontier: 47
-UP -> (3,6), f:9 ( t,f,t,t) frontier: 50
-UP -> (2,6), f:8 ( t,f,t,t) frontier: 52
-UP -> (1,6), f:7 ( t,t,t,t) frontier: 54
-DOWN -> (1,5), f:6 ( t,t,t,t) frontier: 55
-DOWN -> (1,4), f:5 ( t,t,t,t) frontier: 55
-DOWN -> (1,3), f:4 ( t,t,t,t) frontier: 55
-DOWN -> (1,2), f:3 ( t,t,t,t) frontier: 55
-DOWN -> (1,1), f:2 ( t,t,t,t) frontier: 55
-nodes Expanded: 2155
-time: 581.681 ms
+depth  : 36
+UP -> (4,1), f:19 ( f,f,f,f) frontier: 2
+UP -> (3,1), f:18 ( t,f,f,f) frontier: 4
+UP -> (2,1), f:17 ( t,f,f,f) frontier: 6
+UP -> (1,1), f:16 ( t,f,f,f) frontier: 8
+UP -> (2,1), f:15 ( t,f,f,f) frontier: 9
+UP -> (1,1), f:14 ( t,f,f,f) frontier: 11
+UP -> (2,1), f:13 ( t,f,f,f) frontier: 12
+UP -> (1,1), f:12 ( t,f,f,f) frontier: 14
+UP -> (2,1), f:11 ( t,f,f,f) frontier: 15
+DOWN -> (3,1), f:10 ( t,f,f,f) frontier: 16
+DOWN -> (4,1), f:9 ( t,f,f,f) frontier: 17
+DOWN -> (5,1), f:8 ( t,f,f,f) frontier: 18
+DOWN -> (6,1), f:7 ( t,f,f,f) frontier: 19
+LEFT -> (6,2), f:6 ( t,f,f,f) frontier: 19
+LEFT -> (6,3), f:5 ( t,f,f,f) frontier: 19
+RIGHT -> (6,4), f:4 ( t,f,f,f) frontier: 19
+RIGHT -> (6,5), f:3 ( t,f,f,f) frontier: 19
+LEFT -> (6,6), f:2 ( t,f,f,f) frontier: 19
+RIGHT -> (6,7), f:1 ( t,f,f,f) frontier: 19
+RIGHT -> (6,8), f:20 ( t,f,f,f) frontier: 19
+DOWN -> (7,8), f:19 ( t,f,f,f) frontier: 21
+DOWN -> (8,8), f:18 ( t,f,f,f) frontier: 23
+LEFT -> (8,7), f:17 ( t,f,f,f) frontier: 24
+LEFT -> (8,6), f:16 ( t,f,t,f) frontier: 24
+UP -> (7,6), f:15 ( t,f,t,f) frontier: 27
+UP -> (6,6), f:14 ( t,f,t,f) frontier: 29
+UP -> (5,6), f:13 ( t,f,t,f) frontier: 31
+UP -> (4,6), f:12 ( t,f,t,f) frontier: 32
+UP -> (3,6), f:11 ( t,f,t,f) frontier: 34
+UP -> (2,6), f:10 ( t,t,t,f) frontier: 36
+UP -> (1,6), f:9 ( t,t,t,f) frontier: 39
+DOWN -> (1,5), f:8 ( t,t,t,f) frontier: 40
+DOWN -> (1,4), f:7 ( t,t,t,f) frontier: 40
+DOWN -> (1,3), f:6 ( t,t,t,f) frontier: 40
+DOWN -> (1,2), f:5 ( t,t,t,t) frontier: 40
+DOWN -> (1,1), f:4 ( t,t,t,t) frontier: 41
+nodes Expanded: 1533
+time: 7956.18 ms
 
 
 ****** test 8 ********
-Start State: (4,6, fuel:3)
-nodes Expanded: 34
-No Solution
-time: 4.486 ms
+Start State: (2,6, fuel:8)
+goal found 
+depth  : 26
+UP -> (1,6), f:7 ( f,f,f,f) frontier: 3
+UP -> (2,6), f:6 ( f,t,f,f) frontier: 5
+DOWN -> (3,6), f:5 ( f,t,f,f) frontier: 7
+DOWN -> (4,6), f:4 ( f,t,f,f) frontier: 9
+DOWN -> (5,6), f:3 ( f,t,f,f) frontier: 11
+DOWN -> (6,6), f:2 ( f,t,f,f) frontier: 12
+RIGHT -> (6,7), f:1 ( f,t,f,f) frontier: 12
+RIGHT -> (6,8), f:20 ( f,t,f,f) frontier: 12
+DOWN -> (7,8), f:19 ( f,t,f,f) frontier: 14
+DOWN -> (8,8), f:18 ( f,t,f,f) frontier: 16
+LEFT -> (8,7), f:17 ( f,t,f,f) frontier: 17
+LEFT -> (8,6), f:16 ( f,t,t,f) frontier: 17
+UP -> (7,6), f:15 ( f,t,t,f) frontier: 20
+UP -> (6,6), f:14 ( f,t,t,f) frontier: 22
+UP -> (5,6), f:13 ( f,t,t,f) frontier: 24
+UP -> (4,6), f:12 ( f,t,t,f) frontier: 25
+LEFT -> (4,5), f:11 ( f,t,t,f) frontier: 26
+DOWN -> (4,4), f:10 ( f,t,t,f) frontier: 26
+LEFT -> (4,3), f:9 ( f,t,t,f) frontier: 26
+DOWN -> (4,2), f:8 ( f,t,t,f) frontier: 26
+UP -> (3,2), f:7 ( f,t,t,f) frontier: 27
+LEFT -> (3,1), f:6 ( t,t,t,f) frontier: 27
+UP -> (2,1), f:5 ( t,t,t,f) frontier: 29
+UP -> (1,1), f:4 ( t,t,t,f) frontier: 30
+DOWN -> (1,2), f:3 ( t,t,t,t) frontier: 30
+DOWN -> (1,1), f:2 ( t,t,t,t) frontier: 31
+nodes Expanded: 1337
+time: 954.869 ms
 
 
 ****** test 9 ********
-Start State: (5,2, fuel:15)
+Start State: (5,9, fuel:2)
 goal found 
-depth now : 33
-UP -> (4,2), f:14 ( f,f,f,f) frontier: 3
-UP -> (3,2), f:13 ( f,f,f,f) frontier: 6
-UP -> (2,2), f:12 ( f,f,f,f) frontier: 9
-DOWN -> (3,2), f:11 ( f,f,f,f) frontier: 11
-DOWN -> (4,2), f:10 ( f,f,f,f) frontier: 13
-DOWN -> (5,2), f:9 ( f,f,f,f) frontier: 15
-DOWN -> (6,2), f:8 ( f,f,f,f) frontier: 17
-DOWN -> (7,2), f:7 ( f,f,f,f) frontier: 19
-DOWN -> (8,2), f:6 ( f,f,f,f) frontier: 21
-DOWN -> (9,2), f:5 ( f,f,f,f) frontier: 23
-DOWN -> (10,2), f:4 ( f,f,f,f) frontier: 25
-LEFT -> (10,3), f:3 ( f,f,f,f) frontier: 25
-LEFT -> (10,4), f:2 ( f,f,f,f) frontier: 25
-LEFT -> (10,5), f:1 ( f,f,f,f) frontier: 25
-LEFT -> (10,6), f:20 ( f,f,f,f) frontier: 25
-LEFT -> (10,7), f:19 ( f,f,f,f) frontier: 25
-LEFT -> (10,8), f:18 ( t,f,t,f) frontier: 25
-UP -> (9,8), f:17 ( t,f,t,f) frontier: 27
-UP -> (8,8), f:16 ( t,f,t,f) frontier: 29
-UP -> (7,8), f:15 ( t,f,t,f) frontier: 31
-UP -> (6,8), f:14 ( t,f,t,f) frontier: 33
-UP -> (5,8), f:13 ( t,f,t,f) frontier: 35
-UP -> (4,8), f:12 ( t,f,t,f) frontier: 37
-LEFT -> (4,7), f:11 ( t,f,t,f) frontier: 38
-LEFT -> (4,6), f:10 ( t,f,t,t) frontier: 38
-UP -> (3,6), f:9 ( t,f,t,t) frontier: 41
-UP -> (2,6), f:8 ( t,f,t,t) frontier: 43
-UP -> (1,6), f:7 ( t,t,t,t) frontier: 45
-DOWN -> (1,5), f:6 ( t,t,t,t) frontier: 46
-DOWN -> (1,4), f:5 ( t,t,t,t) frontier: 46
-DOWN -> (1,3), f:4 ( t,t,t,t) frontier: 46
-DOWN -> (1,2), f:3 ( t,t,t,t) frontier: 46
-DOWN -> (1,1), f:2 ( t,t,t,t) frontier: 46
-nodes Expanded: 2152
-time: 471.242 ms
+depth  : 22
+DOWN -> (6,9), f:1 ( f,f,f,f) frontier: 2
+LEFT -> (6,8), f:20 ( f,f,f,f) frontier: 3
+DOWN -> (7,8), f:19 ( f,f,f,f) frontier: 5
+DOWN -> (8,8), f:18 ( f,f,f,f) frontier: 7
+LEFT -> (8,7), f:17 ( f,f,f,f) frontier: 8
+LEFT -> (8,6), f:16 ( f,f,t,f) frontier: 8
+UP -> (7,6), f:15 ( f,f,t,f) frontier: 11
+UP -> (6,6), f:14 ( f,f,t,f) frontier: 13
+UP -> (5,6), f:13 ( f,f,t,f) frontier: 15
+UP -> (4,6), f:12 ( f,f,t,f) frontier: 16
+UP -> (3,6), f:11 ( f,f,t,f) frontier: 18
+UP -> (2,6), f:10 ( f,t,t,f) frontier: 20
+UP -> (1,6), f:9 ( f,t,t,f) frontier: 23
+DOWN -> (1,5), f:8 ( f,t,t,f) frontier: 24
+DOWN -> (1,4), f:7 ( f,t,t,f) frontier: 24
+DOWN -> (1,3), f:6 ( f,t,t,f) frontier: 24
+DOWN -> (1,2), f:5 ( f,t,t,t) frontier: 24
+UP -> (2,2), f:4 ( f,t,t,t) frontier: 26
+DOWN -> (3,2), f:3 ( f,t,t,t) frontier: 28
+LEFT -> (3,1), f:2 ( t,t,t,t) frontier: 28
+UP -> (2,1), f:1 ( t,t,t,t) frontier: 30
+UP -> (1,1), f:0 ( t,t,t,t) frontier: 31
+nodes Expanded: 2694
+time: 573.875 ms
 
 
 ****** test 10 ********
-Start State: (1,8, fuel:10)
-nodes Expanded: 505
-No Solution
-time: 119.042 ms
+Start State: (2,5, fuel:19)
+goal found 
+depth  : 35
+UP -> (1,5), f:18 ( f,f,f,f) frontier: 3
+UP -> (2,5), f:17 ( f,f,f,f) frontier: 5
+LEFT -> (2,4), f:16 ( f,f,f,f) frontier: 6
+LEFT -> (2,3), f:15 ( f,f,f,f) frontier: 6
+DOWN -> (2,2), f:14 ( f,f,f,f) frontier: 6
+DOWN -> (3,2), f:13 ( f,f,f,f) frontier: 7
+LEFT -> (3,1), f:12 ( t,f,f,f) frontier: 7
+UP -> (2,1), f:11 ( t,f,f,f) frontier: 9
+LEFT -> (2,2), f:10 ( t,f,f,f) frontier: 9
+RIGHT -> (2,3), f:9 ( t,f,f,f) frontier: 9
+LEFT -> (2,4), f:8 ( t,f,f,f) frontier: 9
+DOWN -> (3,4), f:7 ( t,f,f,f) frontier: 10
+LEFT -> (3,5), f:6 ( t,f,f,f) frontier: 10
+RIGHT -> (3,6), f:5 ( t,f,f,f) frontier: 10
+RIGHT -> (3,7), f:4 ( t,f,f,f) frontier: 10
+DOWN -> (4,7), f:3 ( t,f,f,f) frontier: 12
+DOWN -> (5,7), f:2 ( t,f,f,f) frontier: 14
+DOWN -> (6,7), f:1 ( t,f,f,f) frontier: 16
+RIGHT -> (6,8), f:20 ( t,f,f,f) frontier: 16
+DOWN -> (7,8), f:19 ( t,f,f,f) frontier: 18
+DOWN -> (8,8), f:18 ( t,f,f,f) frontier: 20
+LEFT -> (8,7), f:17 ( t,f,f,f) frontier: 21
+LEFT -> (8,6), f:16 ( t,f,t,f) frontier: 21
+UP -> (7,6), f:15 ( t,f,t,f) frontier: 24
+UP -> (6,6), f:14 ( t,f,t,f) frontier: 26
+UP -> (5,6), f:13 ( t,f,t,f) frontier: 28
+UP -> (4,6), f:12 ( t,f,t,f) frontier: 29
+UP -> (3,6), f:11 ( t,f,t,f) frontier: 31
+UP -> (2,6), f:10 ( t,t,t,f) frontier: 33
+UP -> (1,6), f:9 ( t,t,t,f) frontier: 36
+DOWN -> (1,5), f:8 ( t,t,t,f) frontier: 37
+DOWN -> (1,4), f:7 ( t,t,t,f) frontier: 37
+DOWN -> (1,3), f:6 ( t,t,t,f) frontier: 37
+DOWN -> (1,2), f:5 ( t,t,t,t) frontier: 37
+DOWN -> (1,1), f:4 ( t,t,t,t) frontier: 38
+nodes Expanded: 4816
+time: 8357.61 ms
 
