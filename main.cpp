@@ -8,7 +8,6 @@ using namespace std;
 int main()
  {
      ofstream out("output.txt");
-     int num_algorithm;
      State goal;
      
     goal.agent_pos = {1,1};// الهدف هو الوصول إلى (1,1)
@@ -18,38 +17,37 @@ int main()
     goal.c4 = true;
 
     srand(time(0)); // used to seed the random number generator with the current time, ensuring different random values each time the program is run
-   
+     // walls fixed positions
+      block[0] = {3,3};
+      block[1] = {5,5};
+      block[2] = {7,2};
     // coins random
     for(int i = 0; i < 4; i++)
      {
     coins[i].row = rand() % 10 + 1;
-    coins[i].col = rand() % 10 + 1;
-    }
+    coins[i].col = rand() % 10 + 1; }
 
     // fuel place random
     fuel_place.row = rand() % 10 + 1;
     fuel_place.col = rand() % 10 + 1;
 
-   // goal.collected_coins = 15; // 1111 in binary, meaning all coins collected
-   // tests[i] = {{x,y}, fuel, false, false, false, false};
    //Represent the tests in an array of type State, each test containing a different location for the (x,y) agent, a different amount of fuel, and coins with a value of 0.
-   // { {tests[i].agent_pos.row, tests[i].agent_pos.col}, tests[i].fuel, tests[i].collected_coins }
+   // { {tests[i].agent_pos.row, tests[i].agent_pos.col}, tests[i].fuel, false, false, false, false }
     
 
    State tests[10];// مجموعة من الحالات الابتدائية للtests 
    for(int i = 0; i < 10; i++)
     {
-
     tests[i].agent_pos.row = rand() % 10 + 1; // من 1 إلى 10
     tests[i].agent_pos.col = rand() % 10 + 1;
-
     tests[i].fuel = rand() % 20 + 1; // من 1 إلى 20
 
     tests[i].c1 = false;
     tests[i].c2 = false;
     tests[i].c3 = false;
     tests[i].c4 = false;
-}
+
+    }
 
 
   out<<"**********************************************BFS************************************************\n";

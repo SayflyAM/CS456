@@ -21,15 +21,14 @@ struct Position
 
 extern Position coins[4]; // العملات
 extern Position fuel_place; // محطة الوقود
-
+extern Position block[3]; // الحواجز
 struct State
 {
     Position agent_pos;
     int fuel;
-    // We have Using bool for every coins C1-C4 but it not good  for memory, that way we have used a bitmask for coins to save memory.
-    //uint8_t collected_coins;
     bool c1, c2, c3, c4;// تم استخدام 4 متغيرات بوليانية لتمثيل جمع كل عملة بشكل منفصل بدلاً من استخدام
-};
+ };
+
 struct Node {
     State state;// الحالة الحالية
     Node* parent;//بوينتر إلى الأب في شجرة البحث
@@ -47,15 +46,7 @@ struct Node {
         depth = d;
     }
 };
-/*struct SearchResult
-{
 
-    bool found_solution;
-    vector<Direction> path;
-    int nodes_expanded;
-    double execution_time_ms;
-};
-*/
 // Here we declare a function that takes a State, we have used it as Const not  just State so we do not copy of state just use what we have only.
 
 bool isGoal(const State &current_state, const State &goal_state);
