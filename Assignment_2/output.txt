@@ -1,0 +1,26 @@
+*************** GBFS ***************
+Test 1: Start State: (4, 7), Fuel: 10
+No Solution
+Depth: 5
+Nodes Expanded: 399
+Time: 4.015 ms
+Test 2: Start State: (10, 4), Fuel: 9
+No Solution
+Depth: 21
+Nodes Expanded: 4972
+Time: 364.439 ms
+Test 3: Start State: (4, 5), Fuel: 10
+No Solution
+Depth: 21
+Nodes Expanded: 4972
+Time: 404.268 ms
+Test 4: Start State: (3, 10), Fuel: 13
+No Solution
+Depth: 10
+Nodes Expanded: 635
+Time: 0 ms
+Test 5: Start State: (7, 7), Fuel: 20
+No Solution
+Depth: 17
+Nodes Expanded: 7131
+Time: 874.145 ms
