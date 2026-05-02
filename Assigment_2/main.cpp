@@ -1,34 +1,25 @@
-#include <iostream>
-#include <queue>
-#include <vector>
-#include <cmath>
-#include <chrono>
-#include <fstream>
+#include <iostream> 
+#include <queue>// for priority queue
+#include <vector> // for explored set
+#include <cmath>// for abs function
+#include <chrono> // for  time
+#include <fstream>//
 using namespace std;
-
-
-
 
 class State{
 public:
 
-	int x,y;
-	int fuel;
+	int x,y;// position of the agent
+	int fuel;// amount of fuel
 	bool coins[4];
 	int steps;
 	int f_score;
 
-	bool operator<(const State& other ) const {
-		return this->f_score > other.f_score;
-	}
-
-
-
+	bool operator<(const State& other ) 
+	const  {return this->f_score > other.f_score;} 
 };
 
 void printState(State s, ofstream &out);
-
-
 
 enum dirction{
 	up,
@@ -36,8 +27,6 @@ enum dirction{
 	left,
 	right,
 };
-
-
 
 int coin_places[4][2] ={
 	{1,4},
@@ -63,7 +52,6 @@ int wall_places[4][2]{
 	{1,5},
 
 };
-
 
 
 
@@ -429,8 +417,8 @@ void GreedySearch(State initial_state, 	int heuristicType, ofstream &out)
 void printState(State s, ofstream &out){
 	out <<"<" <<s.x << ","<< s.y <<","<<s.fuel<< ",";
 
-	for (int i=0; i<4; i++){
-		out << (s.coins[i] ? "t" : "f");
+	for (int i=0; i<4; i++)
+	{out << (s.coins[i] ? "t" : "f");
 		if(i != 3) out << ", ";
 	}
 
@@ -461,7 +449,7 @@ int main(){
 	tests.push_back(createState(10,10,20));
 	tests.push_back(createState(2,2,14));
 	tests.push_back(createState(2,7,5));
-	tests.push_back(createState(9,4,15));
+	tests.push_back(createState(9,8,15));
 
 
 	for (int i=0 ; i < tests.size(); i++){
