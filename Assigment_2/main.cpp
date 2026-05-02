@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-
+//this for state for the robot its the memory for the robot his eniveimonet
 class State{
 public:
 
@@ -15,8 +15,10 @@ public:
 	int fuel;
 	bool coins[4];
 	int steps;
-	int f_score;
+	int f_score; // thif for f = g + h we learn this during the leacture
+     
 
+    // this oprator overloding for priority queue so we get the least in the top
 	bool operator<(const State& other ) const {
 		return this->f_score > other.f_score;
 	}
@@ -24,7 +26,7 @@ public:
 
 
 };
-
+// prototype 
 void printState(State s);
 
 
@@ -66,7 +68,7 @@ int wall_places[4][2]{
 
 
 
-
+// this implemnt  manhattan h2 
 int maxManhattanDistance(State s){
 	int distance_larg =0;
 	bool allcollected = true;
@@ -94,6 +96,8 @@ int maxManhattanDistance(State s){
 	}
 	return distance_larg;
 }
+
+// this implemntion for h1
 
 int nearestNeighborSum(State s){
 
@@ -148,6 +152,8 @@ int nearestNeighborSum(State s){
 	return total_distance;
 }
 
+// this to create state the return type state
+
 State createState( int x , int y , int fuel) {
 	State s;
 	s.x = x;
@@ -172,7 +178,7 @@ int heuristic(State s, int heuristicType)
 
 
 
-
+// this to cheak is fuel station
 bool isFuelStation(int x, int y) {
 	for (int i =0 ; i<4 ; i++)
 	{
@@ -194,6 +200,8 @@ bool is_wall(int new_x , int new_y){
 	return false;
 
 }
+
+ 
 
 bool is_same_state(State s, State b)
 {
