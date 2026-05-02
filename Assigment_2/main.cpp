@@ -8,30 +8,37 @@ class State{
 
 };
 
+enum dirction{
+	up;
+	down;
+	left;
+	right;
+}
+
 
 
 int coin_places[4][2] ={
-	{1,4} 
-	{5,7}
-	{4,9}
-	{6,5}
+	{1,4},
+	{5,7},
+	{4,9},
+	{6,5},
 
 };
 
 int fuel_places[4][2] ={
-	{1,3} 
-	{4,5}
-	{3,7}
-	{2,5}
+	{1,3}, 
+	{4,5},
+	{3,7},
+	{2,5},
 
 }
 
 int wall_places[4][2]{
 
-	{2,3} 
-	{3,5}
-	{9,7}
-	{1,5}
+	{2,3},
+	{3,5},
+	{9,7},
+	{1,5},
 
 }
 
@@ -63,7 +70,14 @@ int minNigbour(State s){
 	int coin_to_collect=4;
 	int total_distance = 0;
 	int closet_coin=1;
-	
+	int coins=0;
+	for(int i=0;i<4;i++){
+		
+		if(s.coins[i]==false){
+			coins++;
+		}
+	}
+	coin_to_collect = coins;
 
 	while(coin_to_collect > 0){
 		int distance_short=100000;
@@ -98,7 +112,7 @@ int minNigbour(State s){
 
 
 bool is_fuel(State s){
-	for(i=0;i<3;i++){
+	for(i=0;i<4;i++){
 		if(s.x == fuel_places[i][0] and s.y == fuel_places[i][1]){
 			return false;
 		}
@@ -107,7 +121,7 @@ bool is_fuel(State s){
 	return true;
 }
 bool is_wall(State s){
-	for(i=0;i<3;i++){
+	for(i=0;i<4;i++){
 		if(s.x == wall_places[i][0] and s.y == wall_places[i][1]){
 			return true;
 		}
@@ -118,22 +132,33 @@ bool is_wall(State s){
 }
 
 bool is_same_state(State s, State b){
-	int temp =0;
+	
 	if((s.x == b.x)&& (s.y == b.y){
-		for(i=0;i<4;i++){
-			if(s.coins[i]==b.coins[i]){
-				temp++;
-			}
-			if(temp==4){
-				return true;
+		for(int i=0;i<4;i++){
+			if(s.coins[i]!=b.coins[i]){
+				return false;	
 			}
 		}
+	    return true;
 
-	
-
-	}
-	return false;
+    return false;
+    }
 }
+
+
+State neighbor_genration(State s,int new_x,int new_y){
+	State next_state = s;
+	for(int i=0; i<4;i++){
+		if(coin_places[i][0]==new_x)&&(coin_places[i][1]==new_y){
+			
+				next_state.coins[i]=true;
+			
+		}
+	}
+	return next_state;
+}
+
+
 
 
 int main(){
