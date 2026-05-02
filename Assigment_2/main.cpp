@@ -1,19 +1,35 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+
+
 class State{
+public:
+
 	int x,y;
 	int fuel;
 	bool coins[4];
-	int stpes;
+	int steps;
+	int f_score;
+
+	bool operator<(const State& other ) const {
+		return this->f_score > other.f_score;
+	}
 
 
 
 };
 
 enum dirction{
-	up;
-	down;
-	left;
-	right;
-}
+	up,
+	down,
+	left,
+	right,
+};
 
 
 
@@ -31,7 +47,7 @@ int fuel_places[4][2] ={
 	{3,7},
 	{2,5},
 
-}
+};
 
 int wall_places[4][2]{
 
@@ -40,7 +56,7 @@ int wall_places[4][2]{
 	{9,7},
 	{1,5},
 
-}
+};
 
 
 
@@ -112,7 +128,7 @@ int minNigbour(State s){
 
 
 bool is_fuel(State s){
-	for(i=0;i<4;i++){
+	for(int i=0;i<4;i++){
 		if(s.x == fuel_places[i][0] and s.y == fuel_places[i][1]){
 			return false;
 		}
@@ -120,9 +136,10 @@ bool is_fuel(State s){
 	}
 	return true;
 }
-bool is_wall(State s){
-	for(i=0;i<4;i++){
-		if(s.x == wall_places[i][0] and s.y == wall_places[i][1]){
+
+bool is_wall(int new_x , int new_y){
+	for(int i=0;i<4;i++){
+		if(new_x== wall_places[i][0] and new_y == wall_places[i][1]){
 			return true;
 		}
 		
@@ -131,25 +148,31 @@ bool is_wall(State s){
 
 }
 
-bool is_same_state(State s, State b){
+bool is_same_state(State s, State b)
+{
 	
-	if((s.x == b.x)&& (s.y == b.y){
+	if ((s.x == b.x) && (s.y == b.y)) 
+	{
 		for(int i=0;i<4;i++){
-			if(s.coins[i]!=b.coins[i]){
+			if (s.coins[i] != b.coins[i])
+			{
 				return false;	
 			}
 		}
 	    return true;
+	 }
 
     return false;
-    }
-}
+
+ }
+    
+
 
 
 State neighbor_genration(State s,int new_x,int new_y){
 	State next_state = s;
 	for(int i=0; i<4;i++){
-		if(coin_places[i][0]==new_x)&&(coin_places[i][1]==new_y){
+		if((coin_places[i][0] == new_x) && (coin_places[i][1] == new_y)){
 			
 				next_state.coins[i]=true;
 			
@@ -158,20 +181,72 @@ State neighbor_genration(State s,int new_x,int new_y){
 	return next_state;
 }
 
+void A_star(State initial_state){
+	vector<State> explored_set;
+	priority_queue<State> pq;
+
+
+	pq.push(initial_state); 
+
+	while(!pq.empty()){
+		State current_state = pq.top();
+		pq.pop();
+		if(maxManhattanDistance(current_state)==0){
+			cout<< "Goal"<<endl;
+			cout<<"Total steps:"<<current_state.steps<<endl;
+			break;
+
+		}
+		explored_set.push_back(current_state);
+		int dx[4]= {1,-1,0,0};
+		int dy[4]={0,0,1,-1};
+		for(int i=0;i<4;i++){
+			int new_x , new_y;
+			new_x = current_state.x + dx[i];
+			new_y = current_state.y + dy[i];
+			if(current_state.fuel > 0 && (new_x >= 1 and new_x <= 10) && (new_y >=1 and new_y <= 10) && !is_wall(new_x,new_y)){
+				State next_state = current_state;
+				next_state.x= new_x;
+				next_state.y = new_y;
+				next_state.steps++;
+				next_state.fuel--;
+				next_state = neighbor_genration(next_state,next_state.x,next_state.y);
+				next_state.f_score = next_state.steps  + maxManhattanDistance(next_state);
+				pq.push(next_state);
+
+
+			}
+		}
+	}
+}
+
 
 
 
 int main(){
 	State s;
+	s.x=1;
+	s.y=1;
+	s.steps=3;
+	s.fuel=20;
+	for(int i=0 ; i<4 ; i++){
+		s.coins[i]= false;
+	}
+
+	A_star(s);
 
 
-	int f = s.stpes + maxManhattanDistance(s);
-
-	if(s.fuel > 0 && (new_x > =1 and new_x <= 10) && (new_y > =1 and new_y <= 10) && !is_wall )
+	return 0;
 
 
 
-	if(!is_fuel(s) and !is_wall(s))
+	
+
+
+
+
+
+
 
 
 }
