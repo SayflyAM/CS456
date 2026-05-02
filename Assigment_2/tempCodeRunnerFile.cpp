@@ -2,8 +2,7 @@
 #include <queue>
 #include <vector>
 #include <cmath>
-#include <chrono>
-#include <fstream>
+
 using namespace std;
 
 
@@ -26,7 +25,7 @@ public:
 
 };
 
-void printState(State s, ofstream &out);
+void printState(State s);
 
 
 
@@ -91,8 +90,7 @@ int maxManhattanDistance(State s){
 	}
 
 	if (allcollected) {
-		//return  abs(s.x -1) + abs(a.y - 1);
-		return abs(s.x -1) + abs(s.y -1);
+		return  abs(s.x -1) + abs(a.y - 1);
 	}
 	return distance_larg;
 }
@@ -135,15 +133,14 @@ int nearestNeighborSum(State s){
 	    temp.coins[closet_coin] = true;
 
 
-		total_distance = total_distance + distance_short;
-		//total_distance += abs(temp.x - 1) + abs(temp.y - 1);
-
+		//total_distance = total_distance + distance_short;
+		total_distance += abs(temp.x - 1) + abs(temp.y - 1);
 		coin_to_collect--;
 		
 
 	}
 
-total_distance += abs(temp.x -1) + abs(temp.y -1);	
+	
 	return total_distance;
 }
 
@@ -151,8 +148,7 @@ State createState( int x , int y , int fuel) {
 	State s;
 	s.x = x;
 	s.y = y;
-	//s.fuel = fule;
-	s.fuel = fuel;
+	s.fuel = fule;
 	s.steps = 0;
 	s.f_score = 0;
 
@@ -163,10 +159,8 @@ State createState( int x , int y , int fuel) {
 }
 int heuristic(State s, int heuristicType)
 {
-	//if (heurisitcType == 1)
-	if (heuristicType == 1)
-		//return nearestNighborSum(s);
-		return nearestNeighborSum(s);
+	if (heurisitcType == 1)
+		return nearestNighborSum(s);
 	else
 		return maxManhattanDistance(s);
 
@@ -266,19 +260,13 @@ bool isInExplored(vector<State> explored_set, State s){
 
 
 
-void A_star(State initial_state, int  heuristicType,ofstream &out)
-{
+void A_star(State initial_state, int heruisticType){
 	vector<State> explored_set;
 	priority_queue<State> pq;
-	int expanded_nodes = 0;
-    int frontier_size = 0;
-   
-	auto startTime = chrono::high_resolution_clock::now();
 	int visited_count = 0;
 
 
-    //initial_state = initial_state.steps + heuristic(initial_state, heuristicType);
-	initial_state.f_score =initial_state.steps +heuristic(initial_state, heuristicType);
+    initial_state = initial_state.steps + heuristic(initial_state, heuristicType);
 	pq.push(initial_state); 
 
 	while(!pq.empty()){
@@ -290,8 +278,7 @@ void A_star(State initial_state, int  heuristicType,ofstream &out)
 			continue;
 		}
 		visited_count++;
-		expanded_nodes++;
-		printState(current_state, out);
+		printState(current_state);
 
 
 		//if(maxManhattanDistance(current_state)==0){
@@ -302,18 +289,9 @@ void A_star(State initial_state, int  heuristicType,ofstream &out)
 		//}
 
 		if (is_Goal(current_state)) {
-			auto endTime =chrono::high_resolution_clock::now();double time =chrono::duration<double, milli> (endTime - startTime).count();
-			out<< "Goal"<<endl;
-			/*out<<"Total steps:"<<current_state.steps<<endl;
-			out<<"visited state : "<< visited_count<< endl;*/
-
- 			out << "Cost g(n): "<< current_state.steps << endl;
-          //out << "Heuristic h(n): "<< heuristic(current_state, heuristicType)<< endl;
-        out << "f(n): "<< current_state.f_score << endl;
-        out << "Expanded Nodes: "<< expanded_nodes << endl;
-        out << "Visited States: "<< visited_count << endl;
-        out << "Frontier : "<< frontier_size << endl;
-        out << "Time: "<< time << " ms\n";
+			cout<< "Goal"<<endl;
+			cout<<"Total steps:"<<current_state.steps<<endl;
+			cout<<"visited state : "<< visited_count<< endl;
 			break;
 
 		} 
@@ -343,7 +321,6 @@ void A_star(State initial_state, int  heuristicType,ofstream &out)
 				if (!isInExplored(explored_set, next_state))
 				{
 					pq.push(next_state);
-					frontier_size = pq.size();
 				}
 				
 
@@ -353,15 +330,14 @@ void A_star(State initial_state, int  heuristicType,ofstream &out)
 	}
 }
 
-void GreedySearch(State initial_state, 	int heuristicType, ofstream &out)
+void GreedySearch(State initial_state, 	int heuristicType)
 {
 	vector<State> explored_set;
 	priority_queue<State> pq;
 	int visited_count = 0;
 
 
-    //initial_state = initial_state.steps + heuristic(initial_state, heuristicType);
-	initial_state.f_score =heuristic(initial_state, heuristicType);
+    initial_state = initial_state.steps + heuristic(initial_state, heuristicType);
 	pq.push(initial_state); 
 
 	while(!pq.empty()){
@@ -373,7 +349,7 @@ void GreedySearch(State initial_state, 	int heuristicType, ofstream &out)
 			continue;
 		}
 		visited_count++;
-		printState(current_state, out);
+		printState(current_state);
 
 
 		//if(maxManhattanDistance(current_state)==0){
@@ -384,9 +360,9 @@ void GreedySearch(State initial_state, 	int heuristicType, ofstream &out)
 		//}
 
 		if (is_Goal(current_state)) {
-			out<< "Goal"<<endl;
-			out<<"Total steps:"<<current_state.steps<<endl;
-			out<<"visited state : "<< visited_count<< endl;
+			cout<< "Goal"<<endl;
+			cout<<"Total steps:"<<current_state.steps<<endl;
+			cout<<"visited state : "<< visited_count<< endl;
 			break;
 
 		} 
@@ -426,22 +402,25 @@ void GreedySearch(State initial_state, 	int heuristicType, ofstream &out)
 
 }
 
-void printState(State s, ofstream &out){
-	out <<"<" <<s.x << ","<< s.y <<","<<s.fuel<< ",";
+void printState(State s){
+	cout <<"<" <<s.x << ","
+	<< s.y <<","
+	<<s.fuel<< ",";
+
 
 	for (int i=0; i<4; i++){
-		out << (s.coins[i] ? "t" : "f");
-		if(i != 3) out << ", ";
+		cout << (s.coins[i] ? "t" : "f");
+		if(i != 3) cout << ", ";
 	}
 
-	out << "> Steps: " << s.steps<< " f: " <<s.f_score << endl;
+	cout << "> Stpes: " << s.steps
+	<< " f: " <<s.f_score << endl;
 }
 
 
 
 
 int main(){
-	ofstream out("output.txt");
 	vector<State> tests;
 
 	//State s;
@@ -461,30 +440,46 @@ int main(){
 	tests.push_back(createState(10,10,20));
 	tests.push_back(createState(2,2,14));
 	tests.push_back(createState(2,7,5));
-	tests.push_back(createState(9,4,15));
+	tests.push_back(createState(9,7,15));
 
 
 	for (int i=0 ; i < tests.size(); i++){
 
-		out << "--------------------"<< "Test state "<<i+1 << "------------------------"<<endl;
-	  
-		out<<"*****************************A* with h1***********************************"<<endl;
-		//cout <<"A* with h1"<<endl;
-		A_star(tests[i],1, out);
+		cout << "------------------"<<endl;
+		cout<< "Test state "<<i+1 <<endl;
 
-		out<<"*****************************A* with h2***********************************"<<endl;
+		cout <<"A* with h1"<<endl;
+		A_star(tests[i],1);
 
-		//cout <<"A* with h2"<<endl;
-		A_star(tests[i],2, out);
+		cout <<"A* with h2"<<endl;
+		A_star(tests[i],2);
 
-		out<<"*****************************Greedy with h1***********************************"<<endl;
-		//cout <<"Greedy with h1"<<endl;
-		GreedySearch(tests[i],1, out);
+		cout <<"Greedy with h1"<<endl;
+		GreedySearch(tests[i],1);
 
-		//cout <<"A* with h2"<<endl;
-		out<<"*****************************Greedy with h2***********************************"<<endl;
-		GreedySearch(tests[i],2, out);
+		cout <<"A* with h2"<<endl;
+		GreedySearch(tests[i],2);
+
+
+
 	}
-	out.close(); 
+
+
+
+
+
+
 	return 0;
+
+
+
+	
+
+
+
+
+
+
+
+
 }
